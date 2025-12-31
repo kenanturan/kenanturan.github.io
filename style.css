@@ -357,17 +357,34 @@ footer {
   }
 
   /* Grid Fixes */
-  .leadership-grid {
+  .leadership-grid,
+  .approach-grid,
+  .publication-grid {
     display: grid;
     grid-template-columns: 1fr;
     /* Stack vertically */
     gap: var(--space-lg);
   }
 
+  /* Centering images in publication grid on mobile */
+  .publication-grid>div:first-child {
+    width: 100% !important;
+    /* Override inline 200px */
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-sm);
+  }
+
+  .publication-grid img {
+    max-width: 200px;
+    /* Keep reasonable size */
+  }
+
   /* General Touch Targets */
   a,
   button {
     min-height: 44px;
+    /* Ensure 44px touch target */
     min-width: 44px;
     display: inline-flex;
     align-items: center;
@@ -380,5 +397,17 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-xl);
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  .publication-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: var(--space-lg);
   }
 }
