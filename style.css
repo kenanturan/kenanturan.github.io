@@ -295,7 +295,8 @@ footer {
     --space-md: 1.5rem;
     --space-lg: 2.5rem;
     --space-xl: 4rem;
-    --header-height: auto;
+    --header-height: 180px;
+    /* Fixed height estimate for mobile to prevent overlap */
   }
 
   .section {
@@ -303,20 +304,33 @@ footer {
   }
 
   /* Navbar Mobile Layout */
+  /* Navbar Mobile Layout */
   .navbar {
-    position: relative;
-    /* Unfix on mobile to avoid scrolling issues */
-    padding: var(--space-sm) 0;
+    position: fixed;
+    /* Fixed as requested */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Unfix on mobile to avoid scrolling issues removed */
+    padding: 10px 0;
+    z-index: 1000;
   }
 
   .navbar .container {
     flex-direction: column;
-    gap: var(--space-sm);
+    gap: 10px;
+  }
+
+  /* Prevent horizontal scroll globally */
+  body,
+  html {
+    overflow-x: hidden;
+    width: 100%;
   }
 
   .logo img {
-    height: 80px;
-    /* Smaller logo */
+    height: 60px;
+    /* Smaller logo for sticky header */
   }
 
   .nav-links {
@@ -324,7 +338,7 @@ footer {
     flex-wrap: wrap;
     /* Allow wrapping */
     justify-content: center;
-    gap: var(--space-sm);
+    gap: 10px;
     width: 100%;
   }
 
