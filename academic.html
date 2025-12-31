@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="logo">Taktik Eğitim <span>Akademisi</span></a>
+            <a href="index.html" class="logo"><img src="assets/logo.png" alt="Taktik Eğitim Akademisi"></a>
             <ul class="nav-links">
                 <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
                 <li><a href="approach.html" class="nav-link">Yaklaşım</a></li>
@@ -19,6 +19,7 @@
                 <li><a href="academic.html" class="nav-link active">Yayınlar</a></li>
                 <li><a href="expertise.html" class="nav-link">Uzmanlık</a></li>
                 <li><a href="analysis.html" class="nav-link">Analizler</a></li>
+                <li><a href="contact.html" class="nav-link">İrtibat</a></li>
             </ul>
         </div>
     </nav>
@@ -26,7 +27,7 @@
     <main>
         <section class="section" style="padding-top: calc(var(--header-height) + var(--space-lg));">
             <div class="container">
-                <h1 style="margin-bottom: var(--space-lg);">Akademik Çalışmalar ve Yayınlar</h1>
+
 
                 <!-- Book Section -->
                 <div
@@ -37,7 +38,7 @@
                     <div
                         style="display: grid; grid-template-columns: 200px 1fr; gap: var(--space-lg); align-items: start;">
                         <!-- Book Image -->
-                        <div style="width: 200px; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+                        <div style="width: 200px;" class="shadow-levitate">
                             <img src="assets/book-cover.jpg" alt="Taktik Mücadelenin Temelleri"
                                 style="width: 100%; height: auto; display: block; border-radius: 2px;">
                         </div>
@@ -48,9 +49,34 @@
                                 Taktik Mücadelenin Temelleri</h2>
                             <p style="margin-bottom: var(--space-md); font-style: italic; color: var(--accent-gold);">
                                 Saha Deneyiminden Akademik Teoriye</p>
-                            <p style="font-size: 1.05rem;">Bu eser, taktik düşünceyi yalnızca bir çatışma anı olarak
-                                değil, bir süreç yönetimi olarak ele almaktadır. Sahada edinilen reflekslerin, akademik
-                                Güvenlik Bilimleri perspektifiyle nasıl bir doktrine dönüştüğünü inceler.</p>
+
+                            <!-- Metadata Block -->
+                            <div
+                                style="display: grid; grid-template-columns: auto 1fr; gap: 0.5rem 1.5rem; margin-bottom: var(--space-md); font-size: 0.85rem; color: var(--text-muted); border-left: 1px solid var(--border-subtle); padding-left: 1rem;">
+                                <span style="color: var(--text-main); font-weight: 500;">Yazarlar:</span> <span>Tugay
+                                    Barış Güneş, Kenan Turan</span>
+                                <span style="color: var(--text-main); font-weight: 500;">Yayınevi:</span> <span>Nobel
+                                    Akademik Yayıncılık</span>
+                                <span style="color: var(--text-main); font-weight: 500;">Yıl:</span> <span>Mart,
+                                    2021</span>
+                                <span style="color: var(--text-main); font-weight: 500;">ISBN:</span> <span
+                                    style="font-family: monospace;">978-625-439-130-9</span>
+                            </div>
+
+                            <div
+                                style="border-left: 2px solid var(--accent-gold); padding-left: var(--space-md); margin-top: var(--space-md);">
+                                <p
+                                    style="font-size: 1rem; font-style: italic; margin-bottom: var(--space-xs); opacity: 0.8;">
+                                    Özet:</p>
+                                <p style="font-size: 0.95rem; line-height: 1.6; text-align: justify;">Mücadele sistem ve
+                                    programları evrensel birtakım özellikleri barındırsa da; suç türü, saldırı
+                                    çeşitleri, bireysel silahlanma düzeyi ve kültürel faktörler ülkelere göre değişiklik
+                                    gösterir. Dolayısıyla mücadele yöntemlerinin dayanak noktalarının belirlenmesi,
+                                    değişen şartlara uygun hâle getirilmesi ve yenilenebilir olması gerekmektedir. Bu
+                                    kitap, mücadele sürecinin temel bileşenlerini ortaya koymak ve onların hem
+                                    bütünleşik hem de dinamik bir anlayışla ele alınmasının gerekliliğine dair
+                                    farkındalık oluşturmak üzere hazırlanmıştır.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -63,21 +89,50 @@
                     <div
                         style="display: grid; grid-template-columns: 200px 1fr; gap: var(--space-lg); align-items: start;">
                         <!-- Thesis Image -->
-                        <div style="width: 200px; display: flex; justify-content: center; align-items: center;">
+                        <div style="width: 200px; display: flex; justify-content: center; align-items: center;"
+                            class="shadow-levitate">
                             <img src="assets/tmt-logo.png" alt="TMT Logosu"
                                 style="width: 100%; height: auto; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));">
                         </div>
                         <!-- Thesis Text -->
                         <div>
                             <h2
-                                style="margin-top: 0; line-height: 1.2; font-size: 2rem; margin-bottom: var(--space-sm);">
-                                Kuzey Kıbrıs Türk Cumhuriyeti'nin kuruluşunda Türk Mukavemet Teşkilatı'nın rolü</h2>
-                            <p style="font-size: 1.05rem;"><strong>Kapsam:</strong> Düzensiz harp teknikleri,
-                                gayrinizami harp örgütlenmesi ve stratejik karar alma mekanizmaları üzerine
-                                derinlemesine bir inceleme.</p>
-                            <p style="font-size: 1.05rem; margin-top: var(--space-sm);">Bu çalışma, bir direniş
-                                örgütünün nasıl devlet kurucu bir aktöre dönüştüğünü, güvenlik yapılanmaları ve
-                                toplumsal mobilizasyon bağlamında analiz eder.</p>
+                                style="margin-top: 0; line-height: 1.2; font-size: 2rem; margin-bottom: var(--space-xs);">
+                                Kuzey Kıbrıs Türk Cumhuriyeti'nin Kuruluşunda <br> Türk Mukavemet Teşkilatı'nın Rolü
+                            </h2>
+                            <p style="margin-bottom: var(--space-md); font-style: italic; color: var(--accent-gold);">
+                                Yüksek Lisans Tezi</p>
+
+                            <!-- Metadata Block -->
+                            <div
+                                style="display: grid; grid-template-columns: auto 1fr; gap: 0.5rem 1.5rem; margin-bottom: var(--space-md); font-size: 0.85rem; color: var(--text-muted); border-left: 1px solid var(--border-subtle); padding-left: 1rem;">
+                                <span style="color: var(--text-main); font-weight: 500;">Yazar:</span> <span>Kenan
+                                    Turan</span>
+                                <span style="color: var(--text-main); font-weight: 500;">Danışman:</span> <span>Dr. Öğr.
+                                    Üyesi Gökhan Ak</span>
+                                <span style="color: var(--text-main); font-weight: 500;">Üniversite:</span>
+                                <span>İstanbul Topkapı Üniversitesi</span>
+                                <span style="color: var(--text-main); font-weight: 500;">Enstitü:</span>
+                                <span>Lisansüstü Eğitim Enstitüsü, Güvenlik Bilimleri ABD</span>
+                                <span style="color: var(--text-main); font-weight: 500;">Yıl:</span> <span>2024</span>
+                                <span style="color: var(--text-main); font-weight: 500;">Tez No:</span> <span
+                                    style="font-family: monospace;">893753</span>
+                            </div>
+
+                            <div
+                                style="border-left: 2px solid var(--accent-gold); padding-left: var(--space-md); margin-top: var(--space-md);">
+                                <p
+                                    style="font-size: 1rem; font-style: italic; margin-bottom: var(--space-xs); opacity: 0.8;">
+                                    Özet:</p>
+                                <p style="font-size: 0.95rem; line-height: 1.6; text-align: justify;">Bu çalışma, Kuzey
+                                    Kıbrıs Türk Cumhuriyeti'nin (KKTC) kurulmasında Türk Mukavemet Teşkilatı'nın (TMT)
+                                    oynadığı stratejik ve tarihsel rolü derinlemesine incelemektedir. Araştırma,
+                                    Kıbrıs'taki Türk varlığının korunması ve geliştirilmesi amacıyla TMT tarafından
+                                    yürütülen faaliyetleri, bu faaliyetlerin Kıbrıs Türk Toplumu üzerindeki sosyal,
+                                    kültürel ve siyasi etkilerini ele almaktadır. TMT'nin EOKA'nın ENOSIS hareketine
+                                    karşı yürüttüğü direniş ve KKTC'nin kuruluş sürecindeki etkileri, uluslararası
+                                    ilişkiler bağlamında analiz edilmiştir.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -87,7 +142,7 @@
 
     <footer>
         <div class="container text-center">
-            <p>&copy; 2024 Taktik Eğitim Akademisi. Tüm Hakları Saklıdır.</p>
+            <p>&copy; 2026 Taktik Eğitim Akademisi. Tüm Hakları Saklıdır.</p>
         </div>
     </footer>
     <script src="main.js"></script>

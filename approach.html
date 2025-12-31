@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="logo">Taktik Eğitim <span>Akademisi</span></a>
+            <a href="index.html" class="logo"><img src="assets/logo.png" alt="Taktik Eğitim Akademisi"></a>
             <ul class="nav-links">
                 <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
                 <li><a href="approach.html" class="nav-link active">Yaklaşım</a></li>
@@ -21,6 +21,7 @@
                 <li><a href="academic.html" class="nav-link">Yayınlar</a></li>
                 <li><a href="expertise.html" class="nav-link">Uzmanlık</a></li>
                 <li><a href="analysis.html" class="nav-link">Analizler</a></li>
+                <li><a href="contact.html" class="nav-link">İrtibat</a></li>
             </ul>
         </div>
     </nav>
@@ -28,36 +29,84 @@
     <main>
         <section class="section" style="padding-top: calc(var(--header-height) + var(--space-lg));">
             <div class="container">
-                <h1 style="margin-bottom: var(--space-md);">Düşünsel Çerçeve</h1>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); align-items: start;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: start;">
+                    <!-- Left Column: Manifesto -->
                     <div>
-                        <p class="text-gold"
-                            style="font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;">Zihinsel
-                            Disiplin</p>
-                        <h2 style="font-size: 2rem; margin-bottom: var(--space-sm);">Güvenlik Sahada Başlamaz, Zihinde
-                            Başlar.</h2>
-                        <p>Gerçek güvenlik, tehdit gerçekleştiğinde verilen tepki değil, tehdit oluşmadan önceki
+                        <span class="text-gold"
+                            style="font-size: 0.9rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-bottom: var(--space-sm);">Stratejik
+                            Zihin</span>
+                        <h2
+                            style="font-family: var(--font-display); font-size: 2.5rem; line-height: 1.2; margin-bottom: var(--space-md); color: var(--text-main);">
+                            Güvenlik Sahada Başlamaz, <br> <span style="color: var(--accent-gold);">Zihinde
+                                Başlar.</span>
+                        </h2>
+                        <p
+                            style="font-size: 1.1rem; line-height: 1.7; margin-bottom: var(--space-md); color: var(--text-muted);">
+                            Gerçek güvenlik, tehdit gerçekleştiğinde verilen tepki değil, tehdit oluşmadan önceki
                             öngördür. Yaklaşımımız, reaktif çözümler yerine proaktif stratejilere odaklanır.</p>
-                        <p>13 yılı aşkın VIP koruma, ateşli silahlar ve kritik tesis güvenliği tecrübesi, bize tek bir
-                            gerçeği öğretti: En güçlü silah, eğitilmiş ve farkındalığı yüksek bir zihindir.</p>
+                        <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-muted);">
+                            Uzun yıllara yayılan saha uygulamaları ve yönetsel sorumlulukların birikimi, bizi tek
+                            bir noktada birleştirdi: En güçlü silah, eğitilmiş ve farkındalığı yüksek bir zihindir.</p>
                     </div>
-                    <div
-                        style="background: var(--bg-surface); padding: var(--space-md); border-left: 1px solid var(--accent-gold);">
-                        <h3 style="color: var(--text-main);">Temel Prensipler</h3>
-                        <ul style="margin-top: var(--space-sm);">
+
+                    <!-- Right Column: Principles Card (Levitating) -->
+                    <div class="shadow-levitate"
+                        style="background: var(--bg-surface); padding: var(--space-xl); border-radius: 4px; border-left: 3px solid var(--accent-gold);">
+                        <h3
+                            style="color: var(--text-main); font-family: var(--font-display); font-size: 1.5rem; margin-bottom: var(--space-md);">
+                            Temel Prensipler</h3>
+                        <ul style="margin-top: var(--space-sm); list-style: none; padding: 0;">
                             <li
-                                style="margin-bottom: var(--space-sm); border-bottom: 1px solid var(--border-subtle); padding-bottom: var(--space-xs);">
-                                <strong>Analitik Derinlik:</strong> Yüzeysel taktikler yerine neden-sonuç ilişkisine
-                                dayalı analiz.
+                                style="margin-bottom: var(--space-md); border-bottom: 1px solid var(--border-subtle); padding-bottom: var(--space-sm); display: flex; gap: var(--space-md); align-items: flex-start;">
+                                <div style="flex-shrink: 0; padding-top: 4px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" style="color: var(--accent-gold);">
+                                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong
+                                        style="color: var(--accent-gold); display: block; margin-bottom: 0.2rem;">Analitik
+                                        Derinlik</strong>
+                                    <span style="color: var(--text-muted);">Yüzeysel taktikler yerine neden-sonuç
+                                        ilişkisine dayalı analiz.</span>
+                                </div>
                             </li>
                             <li
-                                style="margin-bottom: var(--space-sm); border-bottom: 1px solid var(--border-subtle); padding-bottom: var(--space-xs);">
-                                <strong>Stratejik Yetkinlik:</strong> Güvenliği bir maliyet kalemi olarak değil,
-                                kurumsal bir yetkinlik olarak konumlandırma.
+                                style="margin-bottom: var(--space-md); border-bottom: 1px solid var(--border-subtle); padding-bottom: var(--space-sm); display: flex; gap: var(--space-md); align-items: flex-start;">
+                                <div style="flex-shrink: 0; padding-top: 4px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" style="color: var(--accent-gold);">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong
+                                        style="color: var(--accent-gold); display: block; margin-bottom: 0.2rem;">Stratejik
+                                        Yetkinlik</strong>
+                                    <span style="color: var(--text-muted);">Güvenliği bir maliyet kalemi olarak değil,
+                                        kurumsal bir yetkinlik olarak konumlandırma.</span>
+                                </div>
                             </li>
-                            <li>
-                                <strong>Soğukkanlı Karar Alma:</strong> Kriz anlarında duyguyla değil, doktrin ve
-                                disiplinle hareket etme.
+                            <li style="display: flex; gap: var(--space-md); align-items: flex-start;">
+                                <div style="flex-shrink: 0; padding-top: 4px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" style="color: var(--accent-gold);">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong
+                                        style="color: var(--accent-gold); display: block; margin-bottom: 0.2rem;">Soğukkanlı
+                                        Karar Alma</strong>
+                                    <span style="color: var(--text-muted);">Kriz anlarında duyguyla değil, doktrin ve
+                                        disiplinle hareket etme.</span>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -68,7 +117,7 @@
 
     <footer>
         <div class="container text-center">
-            <p>&copy; 2024 Taktik Eğitim Akademisi. Tüm Hakları Saklıdır.</p>
+            <p>&copy; 2026 Taktik Eğitim Akademisi. Tüm Hakları Saklıdır.</p>
         </div>
     </footer>
     <script src="main.js"></script>

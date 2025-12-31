@@ -2,43 +2,50 @@
 
 :root {
   /* Color Palette - Academic & Dark */
-  --bg-body: #0f1115; /* Deep Charcoal/Night */
-  --bg-surface: #1a1d23; /* Slightly lighter for cards */
+  --bg-body: #0f1115;
+  /* Deep Charcoal/Night */
+  --bg-surface: #1a1d23;
+  /* Slightly lighter for cards */
   --bg-surface-hover: #23272e;
-  
-  --text-main: #e2e4e9; /* Off-white for readability */
-  --text-muted: #9ca3af; /* Slate grey for secondary text */
+
+  --text-main: #e2e4e9;
+  /* Off-white for readability */
+  --text-muted: #9ca3af;
+  /* Slate grey for secondary text */
   --text-dark: #0f1115;
-  
-  --accent-gold: #c5a059; /* Muted Gold / Bronze */
+
+  --accent-gold: #c5a059;
+  /* Muted Gold / Bronze */
   --accent-gold-dim: #8a703d;
   --accent-gold-light: #dec085;
-  
+
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-focus: rgba(197, 160, 89, 0.5);
 
   /* Typography */
   --font-display: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
-  
+
   /* Spacing */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 2rem;
   --space-lg: 4rem;
   --space-xl: 8rem;
-  
+
   /* Layout */
   --container-width: 1200px;
-  --header-height: 80px;
-  
+  --header-height: 120px;
+
   /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Reset & Base */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -55,7 +62,8 @@ body {
   flex-direction: column;
 }
 
-img, svg {
+img,
+svg {
   display: block;
   max-width: 100%;
 }
@@ -71,7 +79,12 @@ ul {
 }
 
 /* Typography Utilities */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   font-weight: 600;
   line-height: 1.2;
@@ -79,9 +92,20 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.01em;
 }
 
-h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
-h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: var(--space-md); }
-h3 { font-size: 1.5rem; margin-bottom: var(--space-sm); color: var(--accent-gold); }
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: var(--space-md);
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-sm);
+  color: var(--accent-gold);
+}
 
 p {
   margin-bottom: var(--space-sm);
@@ -89,9 +113,17 @@ p {
   color: var(--text-muted);
 }
 
-.text-gold { color: var(--accent-gold); }
-.text-center { text-align: center; }
-.text-justify { text-align: justify; }
+.text-gold {
+  color: var(--accent-gold);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
 
 /* Layout Utilities */
 .container {
@@ -126,15 +158,16 @@ p {
 }
 
 .logo {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  /* precise adjustment */
 }
 
-.logo span {
-  color: var(--accent-gold);
+.logo img {
+  height: 100px;
+  /* Increased to maximize visibility within 120px header */
+  width: auto;
 }
 
 .nav-links {
@@ -151,7 +184,8 @@ p {
   position: relative;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
   color: var(--accent-gold);
 }
 
@@ -166,7 +200,8 @@ p {
   transition: var(--transition-fast);
 }
 
-.nav-link:hover::after, .nav-link.active::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   width: 100%;
 }
 
@@ -205,12 +240,42 @@ footer {
   border: 1px solid var(--border-subtle);
   transition: var(--transition-smooth);
   height: 100%;
+  position: relative;
+  /* For absolute positioning of icon */
+  overflow: hidden;
+  /* Ensures icon doesn't overflow if we make it large/artistic, though for small corner it's fine. Keeps it neat. */
 }
 
 .card:hover {
   border-color: var(--accent-gold-dim);
   transform: translateY(-5px);
 }
+
+.card-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 18px;
+  height: 18px;
+  color: var(--accent-gold);
+  stroke-width: 2;
+  opacity: 0.6;
+}
+
+/* Premium Shadow Utility */
+.shadow-levitate {
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+  /* Deep, soft shadow */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.shadow-levitate:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px -12px rgba(197, 160, 89, 0.15);
+  /* Gold tint on hover */
+}
+
+
 
 .manifesto-text {
   font-family: var(--font-display);
@@ -223,9 +288,11 @@ footer {
   border-left: 3px solid var(--accent-gold);
   padding-left: var(--space-md);
 }
+
 /* Mobile specific */
 @media (max-width: 768px) {
   .nav-links {
-    display: none; /* Simple fallback for now, would need hamburger for full implementation */
+    display: none;
+    /* Simple fallback for now, would need hamburger for full implementation */
   }
 }
