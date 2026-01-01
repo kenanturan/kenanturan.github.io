@@ -217,6 +217,40 @@ p {
   width: 100%;
 }
 
+.lang-switch {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: var(--space-md);
+  padding-left: var(--space-md);
+  border-left: 1px solid var(--border-subtle);
+}
+
+.lang-link {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+
+.lang-link:hover,
+.lang-link.active {
+  color: var(--accent-gold);
+}
+
+/* Mobile adjustments for lang switch */
+@media (max-width: 768px) {
+  .lang-switch {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* Footer */
 footer {
   margin-top: auto;
