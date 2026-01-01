@@ -18,34 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. Smooth Page Transition (Fade-out on Link Click)
-  const anchors = document.querySelectorAll('a');
-
-  anchors.forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      const target = this.getAttribute('target');
-
-      // Check if it's an internal link that we should animate
-      // Exclude: anchors (#), mailto, tel, and new tab targets (_blank)
-      if (href &&
-        !href.startsWith('#') &&
-        !href.startsWith('mailto:') &&
-        !href.startsWith('tel:') &&
-        target !== '_blank') {
-
-        e.preventDefault(); // Stop immediate navigation
-
-        // Add fade-out class to body
-        document.body.classList.add('fade-out');
-
-        // Wait for animation to finish (600ms matches CSS transition)
-        setTimeout(() => {
-          window.location.href = href;
-        }, 600);
-      }
-    });
-  });
+  // 3. Smooth Page Transition (Removed explicit fade-out delay for natural navigation)
+  // Navigation is now handled natively by the browser, with CSS fade-in on the new page.
 
   // 4. Reveal Text on Scroll (Optional visual enhancement)
   const observer = new IntersectionObserver((entries) => {
