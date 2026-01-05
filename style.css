@@ -368,8 +368,8 @@ footer {
     --space-md: 1.5rem;
     --space-lg: 2.5rem;
     --space-xl: 4rem;
-    --header-height: 180px;
-    /* Fixed height estimate for mobile to prevent overlap */
+    --header-height: 280px;
+    /* Increased height for mobile to prevent overlap */
   }
 
   .section {
@@ -377,21 +377,23 @@ footer {
   }
 
   /* Navbar Mobile Layout */
-  /* Navbar Mobile Layout */
   .navbar {
     position: fixed;
-    /* Fixed as requested */
     top: 0;
     left: 0;
     width: 100%;
-    /* Unfix on mobile to avoid scrolling issues removed */
-    padding: 10px 0;
+    height: auto;
+    /* Allow height to grow with content */
+    min-height: var(--header-height);
+    /* Ensure it takes up at least the reserved space */
+    padding: 15px 0;
     z-index: 1000;
   }
 
   .navbar .container {
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+    /* Increased gap for breathing room */
   }
 
   /* Prevent horizontal scroll globally */
@@ -411,7 +413,8 @@ footer {
     flex-wrap: wrap;
     /* Allow wrapping */
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
+    /* Slightly increased gap */
     width: 100%;
   }
 
