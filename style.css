@@ -249,10 +249,6 @@ p {
     width: 100%;
     justify-content: center;
   }
-
-  .menu-toggle {
-    display: flex;
-  }
 }
 
 /* Hamburger Menu */
@@ -286,6 +282,10 @@ p {
   }
 
   .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
     display: flex;
   }
 
