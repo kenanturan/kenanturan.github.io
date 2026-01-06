@@ -249,6 +249,57 @@ p {
     width: 100%;
     justify-content: center;
   }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.bar {
+  width: 25px;
+  height: 2px;
+  background-color: var(--text-main);
+  transition: var(--transition-fast);
+}
+
+/* Mobile Navigation State */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(15, 17, 21, 0.98);
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 }
 
 /* Footer */
@@ -368,8 +419,8 @@ footer {
     --space-md: 1.5rem;
     --space-lg: 2.5rem;
     --space-xl: 4rem;
-    --header-height: 280px;
-    /* Increased height for mobile to prevent overlap */
+    --header-height: 80px;
+    /* Reduced height for mobile */
   }
 
   .section {
@@ -391,9 +442,11 @@ footer {
   }
 
   .navbar .container {
-    flex-direction: column;
+    flex-direction: row;
+    /* Keep row for logo and toggle */
     gap: 15px;
-    /* Increased gap for breathing room */
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   /* Prevent horizontal scroll globally */
@@ -408,15 +461,7 @@ footer {
     /* Smaller logo for sticky header */
   }
 
-  .nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    /* Allow wrapping */
-    justify-content: center;
-    gap: 12px;
-    /* Slightly increased gap */
-    width: 100%;
-  }
+  /* Nav links are now handled by .nav-links.active above */
 
   .nav-link {
     font-size: 0.85rem;

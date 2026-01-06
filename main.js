@@ -34,6 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
     el.classList.add('reveal-text'); // Ensure CSS has this class if used, otherwise it does nothing harmlessly
     observer.observe(el);
   });
+  // 5. Mobile Menu Toggle
+  const menuToggle = document.getElementById('mobile-menu');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+  }
 });
 
 console.log('Security Thought Platform initialized.');
