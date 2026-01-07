@@ -246,6 +246,10 @@ p {
   color: var(--accent-gold);
 }
 
+.mobile-lang {
+  display: none !important;
+}
+
 /* Mobile adjustments for lang switch */
 @media (max-width: 768px) {
   .lang-switch {
@@ -426,8 +430,33 @@ footer {
     --space-md: 1.5rem;
     --space-lg: 2.5rem;
     --space-xl: 4rem;
-    --header-height: 130px;
+    --header-height: 80px;
     /* Reduced height for mobile */
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-lang {
+    display: block !important;
+    margin-top: var(--space-sm);
+    text-align: center;
+    width: 100%;
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .mobile-lang a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    padding: 0 10px;
+  }
+
+  .mobile-lang a.active {
+    color: var(--accent-gold);
+
   }
 
   .section {
