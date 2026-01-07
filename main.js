@@ -39,11 +39,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelector('.nav-links');
 
   if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => {
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent document click from immediately closing it
       menuToggle.classList.toggle('active');
       navLinks.classList.toggle('active');
     });
+
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      }
+    });
   }
+
+  // 6. Smart Navbar (Hide on Scroll)
+  let lastScrollY = window.scrollY;
+  const navbar = document.querySelector('.navbar');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > lastScrollY && window.scrollY > 100) {
+      // Scrolling Down
+      navbar.classList.add('hidden');
+    } else {
+      // Scrolling Up
+      navbar.classList.remove('hidden');
+    }
+    lastScrollY = window.scrollY;
+  });
 });
 
 console.log('Security Thought Platform initialized.');
