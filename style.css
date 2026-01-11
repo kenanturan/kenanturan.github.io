@@ -602,3 +602,23 @@ section.content-section {
     gap: var(--space-lg);
   }
 }
+
+/* Social Share Buttons */
+.share-action {
+  color: var(--text-muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: inherit;
+}
+
+.share-action:hover {
+  color: var(--accent-gold);
+}

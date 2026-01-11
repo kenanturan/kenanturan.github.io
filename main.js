@@ -76,6 +76,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     lastScrollY = window.scrollY;
   });
+  // 7. Social Share Logic
+  window.shareContent = function (platform) {
+    const url = window.location.href;
+    const title = document.title;
+    const text = "Taktik Eğitim Akademisi Analysis: " + title;
+
+    if (platform === 'whatsapp') {
+      // WhatsApp Share
+      const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text + ' ' + url)}`;
+      window.open(whatsappUrl, '_blank');
+    } else if (platform === 'instagram' || platform === 'share') {
+      // Web Share API (Mobile Native Share)
+      // This is the best way to share to Instagram Stories/DM on mobile
+      if (navigator.share) {
+        navigator.share({
+          title: title,
+          text: text,
+          url: url
+        }).catch((error) => console.log('Error sharing', error));
+      } else {
+        // Fallback: Copy to Clipboard (Desktop)
+        navigator.clipboard.writeText(url).then(() => {
+          alert('Bağlantı kopyalandı! (Link copied!)');
+        }).catch(err => {
+          console.error('Failed to copy: ', err);
+          prompt("Copy this link:", url); // Ultimate fallback
+        });
+      }
+    }
+  };
 });
 
 console.log('Security Thought Platform initialized.');
