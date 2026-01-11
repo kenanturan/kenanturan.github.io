@@ -430,6 +430,12 @@ section.hero-section {
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-content: center;
+}
+
+section.content-section {
+  padding-top: calc(var(--header-height) + var(--space-lg));
+  min-height: 50vh;
 }
 
 /* Mobile specific */
@@ -452,6 +458,11 @@ section.hero-section {
     display: flex;
     flex-direction: column;
     /* Disable vertical centering on mobile to prevent top clipping */
+  }
+
+  section.content-section {
+    padding-top: 220px !important;
+    /* Increased to prevent overlap */
   }
 
   /* When screen is tall enough, we can try to center, but default to safe flow */
