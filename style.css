@@ -622,3 +622,51 @@ section.content-section {
 .share-action:hover {
   color: var(--accent-gold);
 }
+
+/* Toast Notification */
+.toast-notification {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid var(--accent-gold);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 2000;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  min-width: 300px;
+  justify-content: center;
+  text-align: center;
+}
+
+.toast-notification.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast-notification svg {
+  color: var(--accent-gold);
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .toast-notification {
+    bottom: auto;
+    top: 20px;
+    width: 90%;
+    min-width: auto;
+  }
+}

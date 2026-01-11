@@ -76,19 +76,61 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     lastScrollY = window.scrollY;
   });
-  // 7. Social Share Logic
+  // 7. Social Share Logic & Toast Notification
+  function showToast(message, duration = 4000) {
+    // Remove existing toast if present to prevent stacking
+    const existingToast = document.querySelector('.toast-notification');
+    if (existingToast) {
+      existingToast.remove();
+    }
+
+    const toast = document.createElement('div');
+    toast.className = 'toast-notification';
+    toast.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>${message}</span>
+        `;
+
+    document.body.appendChild(toast);
+
+    // Trigger animation
+    setTimeout(() => toast.classList.add('show'), 10);
+
+    // Remove after duration
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => toast.remove(), 400); // Wait for fade out
+    }, duration);
+  }
+
   window.shareContent = function (platform) {
     const url = window.location.href;
-    const title = document.title;
-    const text = "Taktik Eğitim Akademisi Analysis: " + title;
+    const lang = document.documentElement.lang || 'tr'; // Default to TR if not set, though it should be.
+
+    // Get clean title by removing site name suffix if present (supports | and I separators)
+    let rawTitle = document.title;
+    let cleanTitle = rawTitle.replace(/\s*[|I]\s*Taktik Eğitim Akademisi.*/i, '').trim();
+
+    // Construct localized text
+    let prefix = (lang === 'tr') ? 'Analiz' : 'Analysis';
+    let text = `${prefix}: ${cleanTitle} | Taktik Eğitim Akademisi`;
 
     if (platform === 'whatsapp') {
       // WhatsApp Share
       const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text + ' ' + url)}`;
       window.open(whatsappUrl, '_blank');
-    } else if (platform === 'instagram' || platform === 'share') {
-      // Web Share API (Mobile Native Share)
-      // This is the best way to share to Instagram Stories/DM on mobile
+    } else if (platform === 'instagram') {
+      // Instagram Strategy: Copy Link + Guide User
+      navigator.clipboard.writeText(url).then(() => {
+        showToast("Bağlantı kopyalandı! Hikayenize 'Bağlantı' etiketiyle ekleyebilirsiniz.");
+      }).catch(err => {
+        console.error('Copy failed', err);
+        prompt("Bağlantıyı kopyalayın:", url);
+      });
+    } else {
+      // Generic / Other
       if (navigator.share) {
         navigator.share({
           title: title,
@@ -96,12 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
           url: url
         }).catch((error) => console.log('Error sharing', error));
       } else {
-        // Fallback: Copy to Clipboard (Desktop)
         navigator.clipboard.writeText(url).then(() => {
-          alert('Bağlantı kopyalandı! (Link copied!)');
-        }).catch(err => {
-          console.error('Failed to copy: ', err);
-          prompt("Copy this link:", url); // Ultimate fallback
+          showToast("Bağlantı kopyalandı!");
         });
       }
     }
