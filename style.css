@@ -424,18 +424,41 @@ footer {
   padding-left: var(--space-md);
 }
 
+section.hero-section {
+  padding-top: calc(var(--header-height) + var(--space-xl));
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Mobile specific */
 @media (max-width: 768px) {
   :root {
     --space-md: 1.5rem;
     --space-lg: 2.5rem;
     --space-xl: 4rem;
-    --header-height: 80px;
+    --header-height: 100px;
     /* Reduced height for mobile */
   }
 
   .desktop-only {
     display: none !important;
+  }
+
+  section.hero-section {
+    padding-top: calc(var(--header-height) + var(--space-xl));
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    /* Disable vertical centering on mobile to prevent top clipping */
+  }
+
+  /* When screen is tall enough, we can try to center, but default to safe flow */
+  @media (min-height: 800px) {
+    section.hero-section {
+      justify-content: center;
+    }
   }
 
   .mobile-lang {
