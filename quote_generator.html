@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taktik Eğitim - Söz Oluşturucu</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f7;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #1a1a1a;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #666;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007aff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        button.add-btn {
+            width: 100%;
+            margin-bottom: 20px;
+            background-color: #34c759;
+        }
+        button.download-btn {
+            background-color: #007aff;
+            width: 100%;
+        }
+        .quote-list {
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .quote-item {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .quote-text {
+            font-style: italic;
+            color: #333;
+        }
+        .quote-author {
+            font-weight: bold;
+            color: #666;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        .delete-btn {
+            background: #ff3b30;
+            padding: 8px 15px;
+            font-size: 14px;
+            margin-left: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Söz Listesi Oluşturucu</h1>
+    
+    <div class="container">
+        <div class="input-group">
+            <label>Söz</label>
+            <textarea id="quoteText" rows="3" placeholder="Örn: Zafer hazırlıktır."></textarea>
+        </div>
+        
+        <div class="input-group">
+            <label>Yazar</label>
+            <input type="text" id="quoteAuthor" placeholder="Örn: M. Kemal Atatürk">
+        </div>
+        
+        <button class="add-btn" onclick="addQuote()">Listeye Ekle</button>
+        
+        <hr>
+        
+        <h3>Eklenen Sözler (<span id="count">0</span>)</h3>
+        <div id="list" class="quote-list">
+            <!-- Items will appear here -->
+        </div>
+        
+        <button class="download-btn" onclick="downloadJSON()">quotes.json Dosyasını İndir</button>
+    </div>
+
+    <script>
+        let quotes = [];
+
+        function addQuote() {
+            const text = document.getElementById('quoteText').value.trim();
+            const author = document.getElementById('quoteAuthor').value.trim();
+            
+            if (!text || !author) {
+                alert("Lütfen hem sözü hem de yazarı giriniz.");
+                return;
+            }
+            
+            quotes.push({ quote: text, author: author });
+            renderList();
+            
+            // Clear inputs
+            document.getElementById('quoteText').value = '';
+            document.getElementById('quoteAuthor').value = '';
+            document.getElementById('quoteText').focus();
+        }
+
+        function deleteQuote(index) {
+            quotes.splice(index, 1);
+            renderList();
+        }
+
+        function renderList() {
+            const list = document.getElementById('list');
+            document.getElementById('count').innerText = quotes.length;
+            list.innerHTML = '';
+            
+            quotes.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'quote-item';
+                div.innerHTML = `
+                    <div>
+                        <div class="quote-text">"${item.quote}"</div>
+                        <div class="quote-author">- ${item.author}</div>
+                    </div>
+                    <button class="delete-btn" onclick="deleteQuote(${index})">Sil</button>
+                `;
+                list.appendChild(div);
+            });
+        }
+
+        function downloadJSON() {
+            if (quotes.length === 0) {
+                alert("Liste boş!");
+                return;
+            }
+            
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(quotes, null, 2));
+            const downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", dataStr);
+            downloadAnchorNode.setAttribute("download", "quotes.json");
+            document.body.appendChild(downloadAnchorNode);
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+        }
+    </script>
+</body>
+</html>
