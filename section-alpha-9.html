@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seksiyon Alpha-9 | Taktik Eğitim Akademisi</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="assets/contact_logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css?v=2">
+    <style>
+        /* Specific page overrides if needed */
+        .portal-access-granted {
+            animation: glitch-anim 0.3s infinite;
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                transform: translate(0);
+            }
+
+            20% {
+                transform: translate(-2px, 2px);
+            }
+
+            40% {
+                transform: translate(-2px, -2px);
+            }
+
+            60% {
+                transform: translate(2px, 2px);
+            }
+
+            80% {
+                transform: translate(2px, -2px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        .blur-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at center, rgba(15, 17, 21, 0.5) 0%, rgba(15, 17, 21, 1) 80%);
+        }
+
+        .submit-btn {
+            background: rgba(197, 160, 89, 0.1);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            font-family: 'Michroma', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 1.2rem;
+            width: 100%;
+            margin-top: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-gold);
+            color: #0f1115;
+            box-shadow: 0 0 30px rgba(197, 160, 89, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .submit-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover svg {
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+
+<body class="hidden-page-body">
+
+    <!-- Login Overlay -->
+    <div id="login-overlay">
+        <div class="login-container">
+            <div style="color: var(--accent-gold); margin-bottom: 2rem;">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                    style="margin: 0 auto;">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <path d="M8 11h8"></path>
+                    <path d="M12 7v8"></path>
+                </svg>
+            </div>
+            <h2 class="font-tech" style="font-size: 1.2rem; letter-spacing: 2px;">ERİŞİM KONTROLÜ</h2>
+            <p style="font-size: 0.8rem; color: var(--text-muted);">SEKSİYON ALPHA-9</p>
+
+            <input type="password" id="access-code" class="login-input" placeholder="ŞİFRE GİRİNİZ" autocomplete="off">
+            <div id="login-message" class="login-message"></div>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden Initially) -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="assets/logo.png" alt="Taktik Eğitim Akademisi"></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
+                <li><a href="academy.html" class="nav-link">Akademi</a></li>
+                <li><a href="analysis.html" class="nav-link">Analizler</a></li>
+                <li><a href="contact.html" class="nav-link">İletişim</a></li>
+                <li><span class="nav-link active portal-link">PORTAL</span></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="section hidden-hero"
+            style="min-height: 30vh; padding-bottom: 1rem; display: flex; align-items: center; justify-content: center; text-align: center;">
+            <div class="container">
+                <p class="font-scifi" style="color: var(--accent-gold); letter-spacing: 0.3em; margin-bottom: 1rem;">
+                    OPERASYONEL ZEKÂ</p>
+                <h1 class="font-tech"
+                    style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; text-transform: uppercase;">
+                    Stratejik Derinlik ve<br>Disiplin Kültürü
+                </h1>
+                <p style="max-width: 800px; margin: 0 auto; opacity: 0.8; font-size: 1.1rem; line-height: 1.8;">
+                    "Bu platformda sunulan eğitimler, sadece fiziksel bir beceri kazandırmayı değil; operasyonel
+                    deneyimin analitik ve teorik boyutlarıyla harmanlandığı bir disiplin kültürü oluşturmayı amaçlar."
+                </p>
+            </div>
+        </section>
+
+        <!-- Expertise Logic Groups -->
+        <section class="section" style="padding-top: 1rem;">
+            <div class="container" style="max-width: 1000px;">
+
+                <!-- Accordion 1: Ateşli Silah Atış Disiplinleri -->
+                <div class="accordion-item">
+                    <button class="accordion-header">ATEŞLİ SİLAH ATIŞ DİSİPLİNLERİ</button>
+                    <div class="accordion-content">
+                        <div class="module-list" style="grid-template-columns: 1fr;">
+                            <div class="module-item">
+                                <p style="margin-bottom: 1.5rem;">Mekanik becerinin ötesinde; stres altında karar verme,
+                                    hedef analizi ve angajman kurallarının hukuki/etik boyutu. Temel, ileri ve
+                                    operasyonel seviyelerde doktrin analizi.</p>
+
+                                <!-- Sub-Section: Tabanca -->
+                                <h4
+                                    style="color: var(--accent-gold); font-family: 'Michroma', sans-serif; font-size: 0.9rem; margin-bottom: 0.5rem; letter-spacing: 1px;">
+                                    TABANCA</h4>
+                                <ul
+                                    style="list-style: none; padding-left: 0; margin-bottom: 1.5rem; color: var(--text-muted); font-size: 0.9rem;">
+                                    <li style="margin-bottom: 0.3rem;">• Temel Mekanik, Güvenli Kullanım ve Kılıftan
+                                        Çekiş</li>
+                                    <li style="margin-bottom: 0.3rem;">• Taktik Şarjör Değişimi ve Tutukluk Giderme</li>
+                                    <li style="margin-bottom: 0.3rem;">• Stres Altında Çatışma Dinamikleri ve Hareketli
+                                        Atış</li>
+                                </ul>
+
+                                <div class="tech-grid"
+                                    style="margin-top: 0.5rem; margin-bottom: 2rem; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                                    <div class="tech-card" style="padding: 1rem; text-align: center;">
+                                        <span class="module-title"
+                                            style="color: var(--accent-gold); font-size: 0.8rem;">LEVEL I</span>
+                                        <h5 style="font-family: 'Rajdhani'; font-size: 1rem; margin-bottom: 0.5rem;">
+                                            DEFNSV 101</h5>
+                                        <p style="font-size: 0.75rem; opacity: 0.7;">Temel Mekanik & Güvenlik</p>
+                                    </div>
+                                    <div class="tech-card" style="padding: 1rem; text-align: center;">
+                                        <span class="module-title"
+                                            style="color: var(--accent-gold); font-size: 0.8rem;">LEVEL II</span>
+                                        <h5 style="font-family: 'Rajdhani'; font-size: 1rem; margin-bottom: 0.5rem;">
+                                            TAC-OPS 201</h5>
+                                        <p style="font-size: 0.75rem; opacity: 0.7;">Siper & Hareketli Atış</p>
+                                    </div>
+                                    <div class="tech-card" style="padding: 1rem; text-align: center;">
+                                        <span class="module-title"
+                                            style="color: var(--accent-gold); font-size: 0.8rem;">LEVEL III</span>
+                                        <h5 style="font-family: 'Rajdhani'; font-size: 1rem; margin-bottom: 0.5rem;">
+                                            WAR-FTR 301</h5>
+                                        <p style="font-size: 0.75rem; opacity: 0.7;">Stres & Senaryo</p>
+                                    </div>
+                                </div>
+
+                                <!-- Sub-Section: Tüfek -->
+                                <h4
+                                    style="color: var(--accent-gold); font-family: 'Michroma', sans-serif; font-size: 0.9rem; margin-bottom: 0.5rem; letter-spacing: 1px;">
+                                    TÜFEK</h4>
+                                <ul
+                                    style="list-style: none; padding-left: 0; margin-bottom: 1.5rem; color: var(--text-muted); font-size: 0.9rem;">
+                                    <li style="margin-bottom: 0.3rem;">• Platform Hakimiyeti, Sıfırlama ve Balistik
+                                        Temeller</li>
+                                    <li style="margin-bottom: 0.3rem;">• CQB (Kapalı Alan) Manipülasyonları ve Köşe
+                                        Dönüşleri</li>
+                                    <li style="margin-bottom: 0.3rem;">• Orta Mesafe Engajman ve Çoklu Hedef Geçişleri
+                                    </li>
+                                </ul>
+
+                                <div class="tech-grid"
+                                    style="margin-top: 0.5rem; margin-bottom: 2rem; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                                    <div class="tech-card" style="padding: 1rem; text-align: center;">
+                                        <span class="module-title"
+                                            style="color: var(--accent-gold); font-size: 0.8rem;">LEVEL I</span>
+                                        <h5 style="font-family: 'Rajdhani'; font-size: 1rem; margin-bottom: 0.5rem;">
+                                            CARBINE 101</h5>
+                                        <p style="font-size: 0.75rem; opacity: 0.7;">Sıfırlama & Temeller</p>
+                                    </div>
+                                    <div class="tech-card" style="padding: 1rem; text-align: center;">
+                                        <span class="module-title"
+                                            style="color: var(--accent-gold); font-size: 0.8rem;">LEVEL II</span>
+                                        <h5 style="font-family: 'Rajdhani'; font-size: 1rem; margin-bottom: 0.5rem;">
+                                            CQB-TAC 201</h5>
+                                        <p style="font-size: 0.75rem; opacity: 0.7;">Kapalı Alan & Köşe</p>
+                                    </div>
+                                    <div class="tech-card" style="padding: 1rem; text-align: center;">
+                                        <span class="module-title"
+                                            style="color: var(--accent-gold); font-size: 0.8rem;">LEVEL III</span>
+                                        <h5 style="font-family: 'Rajdhani'; font-size: 1rem; margin-bottom: 0.5rem;">
+                                            UNIT-OPS 301</h5>
+                                        <p style="font-size: 0.75rem; opacity: 0.7;">Takım Taktikleri</p>
+                                    </div>
+                                </div>
+
+                                <!-- Sub-Section: Keskin Nişancı -->
+                                <h4
+                                    style="color: var(--accent-gold); font-family: 'Michroma', sans-serif; font-size: 0.9rem; margin-bottom: 0.5rem; letter-spacing: 1px;">
+                                    KESKİN NİŞANCI</h4>
+                                <ul
+                                    style="list-style: none; padding-left: 0; margin-bottom: 0; color: var(--text-muted); font-size: 0.9rem;">
+                                    <li style="margin-bottom: 0.3rem;">• İleri Balistik Hesaplama ve Çevre/Rüzgar
+                                        Analizi</li>
+                                    <li style="margin-bottom: 0.3rem;">• Kamuflaj, Gizlenme ve İntikal Teknikleri</li>
+                                    <li style="margin-bottom: 0.3rem;">• Uzak Mesafe Hassas Vuruş Doktrini ve Hedef
+                                        Tespiti</li>
+                                </ul>
+
+                                <div class="tech-grid"
+                                    style="margin-top: 0.5rem; margin-bottom: 0.5rem; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                                    <div class="tech-card" style="padding: 1rem; text-align: center;">
+                                        <span class="module-title"
+                                            style="color: var(--accent-gold); font-size: 0.8rem;">LEVEL I</span>
+                                        <h5 style="font-family: 'Rajdhani'; font-size: 1rem; margin-bottom: 0.5rem;">
+                                            DMR-BSC</h5>
+                                        <p style="font-size: 0.75rem; opacity: 0.7;">Nişancılık Esasları</p>
+                                    </div>
+                                    <div class="tech-card" style="padding: 1rem; text-align: center;">
+                                        <span class="module-title"
+                                            style="color: var(--accent-gold); font-size: 0.8rem;">LEVEL II</span>
+                                        <h5 style="font-family: 'Rajdhani'; font-size: 1rem; margin-bottom: 0.5rem;">
+                                            GHILLIE</h5>
+                                        <p style="font-size: 0.75rem; opacity: 0.7;">Gizlenme & İntikal</p>
+                                    </div>
+                                    <div class="tech-card" style="padding: 1rem; text-align: center;">
+                                        <span class="module-title"
+                                            style="color: var(--accent-gold); font-size: 0.8rem;">LEVEL III</span>
+                                        <h5 style="font-family: 'Rajdhani'; font-size: 1rem; margin-bottom: 0.5rem;">
+                                            L-RANGE</h5>
+                                        <p style="font-size: 0.75rem; opacity: 0.7;">Balistik & Rüzgar</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1rem; text-align: right;">
+                            <a href="#" class="pdf-btn" onclick="return false;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                MÜFREDAT DETAYI (PDF)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 2: VIP / Yakın Koruma Yaklaşımları -->
+                <div class="accordion-item">
+                    <button class="accordion-header">VIP / YAKIN KORUMA YAKLAŞIMLARI</button>
+                    <div class="accordion-content">
+                        <div class="module-list" style="grid-template-columns: 1fr;">
+                            <div class="module-item">
+                                <p>Fiziksel kalkan olmaktan öte; istihbarata dayalı risk analizi, güzergah planlaması ve
+                                    proaktif tehdit eliminasyonu. Koruma çemberlerinin teorik altyapısı.</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <a href="#" class="pdf-btn" onclick="return false;">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                OPERASYON DOSYASI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 3: Terörizme Karşı Bina-Tesis Koruma -->
+                <div class="accordion-item">
+                    <button class="accordion-header">TERÖRİZME KARŞI BİNA-TESİS KORUMA</button>
+                    <div class="accordion-content">
+                        <div class="module-list" style="grid-template-columns: 1fr;">
+                            <div class="module-item">
+                                <p>Fiziksel bariyerlerin ötesinde; derinlemesine savunma (defense in depth) ilkeleri ve
+                                    asimetrik tehditlere karşı yapısal dayanıklılık stratejileri.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 4: Self-Defense ve Yakın Savunma -->
+                <div class="accordion-item">
+                    <button class="accordion-header">SELF-DEFENSE VE YAKIN SAVUNMA KONSEPTLERİ</button>
+                    <div class="accordion-content">
+                        <div class="module-list" style="grid-template-columns: 1fr;">
+                            <div class="module-item">
+                                <p>Şiddet içeren durumların yönetimi, mesafe kavramı ve orantılı güç kullanımının teorik
+                                    temelleri. Biyomekanik ve taktik farkındalık.</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <a href="#" class="pdf-btn" onclick="return false;">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                EĞİTİM DOSYASI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion: Taktik Atlet ve Operasyonel Kondisyon -->
+                <div class="accordion-item">
+                    <button class="accordion-header">TAKTİK ATLET VE OPERASYONEL KONDİSYON</button>
+                    <div class="accordion-content">
+                        <div class="module-list" style="grid-template-columns: 1fr;">
+                            <div class="module-item">
+                                <p>Sahada dayanıklılık, patlayıcı güç ve operasyonel kapasite artırımı.</p>
+
+                                <div class="tech-grid"
+                                    style="margin-top: 1.5rem; margin-bottom: 2rem; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                                    <div class="tech-card" style="padding: 1rem; text-align: center;">
+                                        <span class="module-title"
+                                            style="color: var(--accent-gold); font-size: 0.8rem;">LEVEL I</span>
+                                        <h5 style="font-family: 'Rajdhani'; font-size: 1rem; margin-bottom: 0.5rem;">
+                                            FUNC-STR</h5>
+                                        <p style="font-size: 0.75rem; opacity: 0.7;">Fonksiyonel Güç</p>
+                                    </div>
+                                    <div class="tech-card" style="padding: 1rem; text-align: center;">
+                                        <span class="module-title"
+                                            style="color: var(--accent-gold); font-size: 0.8rem;">LEVEL II</span>
+                                        <h5 style="font-family: 'Rajdhani'; font-size: 1rem; margin-bottom: 0.5rem;">
+                                            ENDURANCE</h5>
+                                        <p style="font-size: 0.75rem; opacity: 0.7;">Dayanıklılık & Çeviklik</p>
+                                    </div>
+                                    <div class="tech-card" style="padding: 1rem; text-align: center;">
+                                        <span class="module-title"
+                                            style="color: var(--accent-gold); font-size: 0.8rem;">LEVEL III</span>
+                                        <h5 style="font-family: 'Rajdhani'; font-size: 1rem; margin-bottom: 0.5rem;">
+                                            COMBAT-FIT</h5>
+                                        <p style="font-size: 0.75rem; opacity: 0.7;">Operasyonel Yük & Stres</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <a href="#" class="pdf-btn" onclick="return false;">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                EĞİTİM DOSYASI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion: Su Altı Operasyonları ve Taktik Dalış -->
+                <div class="accordion-item">
+                    <button class="accordion-header">SU ALTI OPERASYONLARI VE TAKTİK DALIŞ</button>
+                    <div class="accordion-content">
+                        <div class="module-list" style="grid-template-columns: 1fr;">
+                            <div class="module-item">
+                                <p>Deniz ve iç sular ortamında operasyonel yetkinlik. Taktik yüzicilik, batık keşfi ve
+                                    su
+                                    altı intikali.</p>
+
+                                <div class="tech-grid"
+                                    style="margin-top: 1.5rem; margin-bottom: 2rem; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                                    <div class="tech-card" style="padding: 1rem; text-align: center;">
+                                        <span class="module-title"
+                                            style="color: var(--accent-gold); font-size: 0.8rem;">LEVEL I</span>
+                                        <h5 style="font-family: 'Rajdhani'; font-size: 1rem; margin-bottom: 0.5rem;">
+                                            FROGMAN</h5>
+                                        <p style="font-size: 0.75rem; opacity: 0.7;">Temel & Serbest Dalış</p>
+                                    </div>
+                                    <div class="tech-card" style="padding: 1rem; text-align: center;">
+                                        <span class="module-title"
+                                            style="color: var(--accent-gold); font-size: 0.8rem;">LEVEL II</span>
+                                        <h5 style="font-family: 'Rajdhani'; font-size: 1rem; margin-bottom: 0.5rem;">
+                                            DEEP-OPS</h5>
+                                        <p style="font-size: 0.75rem; opacity: 0.7;">Derin & Gece & Batık</p>
+                                    </div>
+                                    <div class="tech-card" style="padding: 1rem; text-align: center;">
+                                        <span class="module-title"
+                                            style="color: var(--accent-gold); font-size: 0.8rem;">LEVEL III</span>
+                                        <h5 style="font-family: 'Rajdhani'; font-size: 1rem; margin-bottom: 0.5rem;">
+                                            RESCUE & NAV</h5>
+                                        <p style="font-size: 0.75rem; opacity: 0.7;">Navigasyon & Arama</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <a href="#" class="pdf-btn" onclick="return false;">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                EĞİTİM DOSYASI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 5: Risk Analizi -->
+                <div class="accordion-item">
+                    <button class="accordion-header">RİSK ANALİZİ VE GÜVENLİK ZAFİYET DEĞERLENDİRMELERİ</button>
+                    <div class="accordion-content">
+                        <div class="module-list" style="grid-template-columns: 1fr;">
+                            <div class="module-item">
+                                <p>Kurumsal ve fiziki yapılardaki "görünmez" açıkların tespiti. Güvenlik mühendisliği
+                                    yaklaşımıyla sistem tasarımı ve tehdit modelleme.</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <a href="#" class="pdf-btn" onclick="return false;">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                ANALİZ RAPORU ÖRNEĞİ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 6: Operasyonel ve İleri Sürüş Konseptleri -->
+                <div class="accordion-item">
+                    <button class="accordion-header">OPERASYONEL VE İLERİ SÜRÜŞ KONSEPTLERİ</button>
+                    <div class="accordion-content">
+                        <div class="module-list" style="grid-template-columns: 1fr;">
+                            <div class="module-item">
+                                <p>Sadece araç kullanımı değil; araç dinamiği ve fizik kurallarının taktiksel yönetimi.
+                                    Kriz anında mobiliteyi sürdürme ve güvenli tahliye stratejileri.</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <a href="#" class="pdf-btn" onclick="return false;">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                EĞİTİM DOSYASI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 7: Güvenlik Sistemleri ve X-Ray -->
+                <div class="accordion-item">
+                    <button class="accordion-header">GÜVENLİK SİSTEMLERİ VE X-RAY GÖRÜNTÜLEME TEKNOLOJİLERİ</button>
+                    <div class="accordion-content">
+                        <div class="module-list" style="grid-template-columns: 1fr;">
+                            <div class="module-item">
+                                <p>Teknolojinin operasyonel süreçlere entegrasyonu. Güvenlik sistemlerinin (CCTV,
+                                    Sensör) yönetimi ve X-Ray cihazlarındaki görsel analiz teknikleriyle tehditlerin
+                                    tespit edilmesi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 8: Davranış Analizi -->
+                <div class="accordion-item">
+                    <button class="accordion-header">DAVRANIŞ ANALİZİ</button>
+                    <div class="accordion-content">
+                        <div class="module-list" style="grid-template-columns: 1fr;">
+                            <div class="module-item">
+                                <p>İnsan faktörünü öngörme sanatı. Mikro ifadeler, kalabalık yönetimi ve anomali tespiti
+                                    üzerinden proaktif tehdit algılama metodolojisi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Accordion Script Inline -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const accordions = document.querySelectorAll('.accordion-header');
+
+                accordions.forEach(acc => {
+                    acc.addEventListener('click', function () {
+                        this.classList.toggle('active');
+                        const panel = this.nextElementSibling;
+
+                        if (panel.style.maxHeight) {
+                            panel.style.maxHeight = null;
+                            panel.classList.remove('active');
+                        } else {
+                            // Optional: Close others
+                            // accordions.forEach(a => {
+                            //     if(a !== this) {
+                            //         a.classList.remove('active');
+                            //         a.nextElementSibling.style.maxHeight = null;
+                            //         a.nextElementSibling.classList.remove('active');
+                            //     }
+                            // });
+
+                            panel.classList.add('active');
+                            panel.style.maxHeight = panel.scrollHeight + "px";
+                        }
+                    });
+                });
+            });
+        </script>
+
+        <!-- Application Form -->
+        <div class="classified-form">
+            <h2 class="font-tech text-center" style="margin-bottom: 2rem;">ÖN DEĞERLENDİRME FORMU</h2>
+
+            <div class="form-disclaimer">
+                BAŞVURUNUZ İNCELENDİKTEN SONRA, UYGUN GÖRÜLMESİ HALİNDE PLANLAMA İÇİN TARAFINIZA DÖNÜŞ
+                YAPILACAKTIR.
+                <br>BU FORM BİR KESİN KAYIT DEĞİL, BİR ÖN DEĞERLENDİRME BAŞVURUSUDUR.
+            </div>
+
+            <form action="https://formspree.io/f/mqeepokg" method="POST">
+
+                <!-- Ad Soyad -->
+                <div class="form-group">
+                    <label class="form-label">AD SOYAD</label>
+                    <input type="text" name="name" class="form-input" required>
+                </div>
+
+                <!-- Telefon -->
+                <div class="form-group">
+                    <label class="form-label">TELEFON NUMARASI</label>
+                    <input type="tel" name="phone" class="form-input" required>
+                </div>
+
+                <!-- Şehir -->
+                <div class="form-group">
+                    <label class="form-label">BULUNDUĞUNUZ İL</label>
+                    <input type="text" name="city" class="form-input" required>
+                </div>
+
+                <!-- İstenen Eğitim -->
+                <div class="form-group">
+                    <label class="form-label">İSTENEN EĞİTİM / HİZMET</label>
+                    <select name="requested_training" class="form-input" required>
+                        <option value="" disabled selected>Lütfen Seçiniz</option>
+                        <option value="Ateşli Silah Atış Disiplinleri">Ateşli Silah Atış Disiplinleri</option>
+                        <option value="VIP / Yakın Koruma">VIP / Yakın Koruma Yaklaşımları</option>
+                        <option value="Bina-Tesis Koruma">Terörizme Karşı Bina-Tesis Koruma</option>
+                        <option value="Self-Defense">Self-Defense ve Yakın Savunma</option>
+                        <option value="Taktik Atlet">Taktik Atlet ve Operasyonel Kondisyon</option>
+                        <option value="Su Altı Operasyonları">Su Altı Operasyonları ve Taktik Dalış</option>
+                        <option value="Risk Analizi">Risk Analizi ve Zafiyet Değerlendirmeleri</option>
+                        <option value="İleri Sürüş">Operasyonel ve İleri Sürüş Konseptleri</option>
+                        <option value="Güvenlik Sistemleri/X-Ray">Güvenlik Sistemleri ve X-Ray Teknolojileri</option>
+                        <option value="Davranış Analizi">Davranış Analizi</option>
+                        <option value="Genel Danışmanlık">Genel Danışmanlık Talebi</option>
+                    </select>
+                </div>
+
+                <!-- Silah Ruhsat Durumu -->
+                <div class="form-group">
+                    <label class="form-label">SİLAH RUHSAT DURUMU</label>
+                    <select name="license_status" class="form-input">
+                        <option value="Bulundurma Ruhsatlı">Bulundurma Ruhsatlı</option>
+                        <option value="Taşıma Ruhsatlı">Taşıma Ruhsatlı</option>
+                        <option value="Kamu Görevlisi">Kamu Görevlisi (Polis/Asker)</option>
+                        <option value="Ruhsat Yok">Ruhsat Yok</option>
+                    </select>
+                </div>
+
+                <!-- Daha Önce Alınan Eğitimler -->
+                <div class="form-group">
+                    <label class="form-label">DAHA ÖNCE ALINAN EĞİTİMLER</label>
+                    <textarea name="training_history" class="form-input" rows="3"
+                        placeholder="Varsa kurum ve eğitim adı belirtiniz..."></textarea>
+                </div>
+
+                <!-- Referans -->
+                <div class="form-group">
+                    <label class="form-label">REFERANS KİŞİ / KURUM</label>
+                    <input type="text" name="reference" class="form-input"
+                        placeholder="Referans kodunuz veya kişi adı..." required>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    BAŞVURUYU GÖNDER
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </form>
+        </div>
+
+        </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p style="opacity: 0.5; font-size: 0.7rem;">&copy; 2026 TEA | SYSTEM ALPHA-9 | CLASSIFIED</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const input = document.getElementById('access-code');
+            const overlay = document.getElementById('login-overlay');
+            const msg = document.getElementById('login-message');
+
+            // Simple hash check or hardcoded password for static site
+            // Password: "ALPHA" (case insensitive)
+
+            input.focus();
+
+            input.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') {
+                    checkPassword();
+                }
+            });
+
+            function checkPassword() {
+                const val = input.value.trim().toUpperCase();
+
+                if (val === 'ALPHA') {
+                    msg.style.color = '#50fa7b'; // Green
+                    msg.innerHTML = 'ERİŞİM ONAYLANDI. YÖNLENDİRİLİYOR...';
+                    input.disabled = true;
+
+                    setTimeout(() => {
+                        overlay.classList.add('unlocked');
+                    }, 1000);
+                } else {
+                    msg.style.color = '#ff5555'; // Red
+                    msg.innerHTML = 'ERİŞİM REDDEDİLDİ. HATALI GİRİŞ.';
+                    input.value = '';
+                    input.classList.add('shake');
+                    setTimeout(() => input.classList.remove('shake'), 500);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
