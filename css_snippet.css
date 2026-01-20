@@ -1,0 +1,44 @@
+/* Shared Minimal Styles (Academy + Home) */
+
+.minimal-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Responsive wrapping */
+    gap: var(--space-xl);
+    column-gap: var(--space-lg);
+    border-top: 1px solid var(--border-subtle);
+    padding-top: var(--space-lg);
+}
+
+.hover-card {
+    transition: all 0.3s ease;
+    padding: var(--space-md);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    height: 100%;
+}
+
+.hover-card:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+.hover-card h4 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-main);
+    font-size: 1.1rem;
+}
+
+.hover-card .label {
+    font-family: 'Space Mono', monospace;
+    /* or fallback */
+    font-size: 0.75rem;
+    color: var(--accent-gold);
+    opacity: 0.8;
+    margin-bottom: 0.75rem;
+    display: block;
+}

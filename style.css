@@ -799,6 +799,145 @@ section.content-section {
   transform: translateY(-5px);
 }
 
+/* Academy Page Aesthetics */
+/* Academy Page Aesthetics - Swiss Minimalist (Fresh Start) */
+.academy-hero {
+  position: relative;
+  padding: calc(var(--header-height) + var(--space-xl)) 0 var(--space-xl);
+  text-align: center;
+  background: #050505;
+  /* Pure, deep black */
+  margin-bottom: var(--space-xxl);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.academy-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: var(--text-main);
+  margin-bottom: var(--space-md);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.academy-hero p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Minimal Column Layouts */
+.minimal-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xxl);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-lg);
+}
+
+.minimal-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xxl);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-lg);
+}
+
+.minimal-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* Tiny Header with 16px Icon */
+.minimal-col-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.minimal-col-header svg {
+  width: 16px;
+  height: 16px;
+  color: var(--accent-gold);
+  stroke-width: 1.5;
+  flex-shrink: 0;
+}
+
+.minimal-col-header h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.minimal-col p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Common Section Title for this layout */
+.minimal-section-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text-main);
+  margin-bottom: var(--space-md);
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .academy-hero {
+    padding-top: calc(var(--header-height) + var(--space-lg));
+    text-align: left;
+  }
+
+  .academy-hero h1 {
+    font-size: 2rem;
+  }
+
+  .academy-hero p {
+    margin: 0;
+  }
+
+  .minimal-grid-4,
+  .minimal-grid-3 {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .minimal-col {
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .minimal-col:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
 .tech-stat-icon {
   display: inline-block;
   width: 24px;
@@ -846,6 +985,50 @@ section.content-section {
   color: var(--text-main);
   font-family: 'Inter', sans-serif;
   transition: all 0.3s ease;
+}
+
+/* Shared Minimal Styles for Expertise Shortcuts */
+.hover-card {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  padding: 1.5rem;
+  border-radius: 2px;
+  border-left: 1px solid transparent;
+  height: 100%;
+}
+
+.hover-card:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+  border-left: 1px solid var(--accent-gold);
+  transform: translateX(5px);
+}
+
+.hover-card .exp-number {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: var(--accent-gold);
+  opacity: 0.7;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.hover-card h4 {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  color: #fff;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+.hover-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #a0a0a0;
+  opacity: 0.9;
 }
 
 .form-input:focus {
