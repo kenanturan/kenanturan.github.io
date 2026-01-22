@@ -85,6 +85,47 @@
         .submit-btn:hover svg {
             transform: translateX(5px);
         }
+
+        /* CRITICAL SECURITY STYLES - INLINE TO PREVENT BYPASS */
+        #login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        #login-overlay.unlocked {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .login-input {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #555;
+            color: #c5a059;
+            font-family: sans-serif;
+            font-size: 1.5rem;
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .login-input:focus {
+            border-color: #c5a059;
+        }
     </style>
 </head>
 
