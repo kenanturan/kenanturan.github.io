@@ -129,7 +129,7 @@
     </style>
 </head>
 
-<body class="hidden-page-body">
+<body class="hidden-page-body" style="overflow: hidden;">
 
     <!-- Login Overlay -->
     <div id="login-overlay">
@@ -751,6 +751,7 @@
 
                     setTimeout(() => {
                         overlay.classList.add('unlocked');
+                        document.body.style.overflow = 'auto'; // Enable scrolling
                     }, 1000);
                 } else {
                     msg.style.color = '#ff5555'; // Red
