@@ -629,13 +629,12 @@
         </script>
 
         <!-- Application Form -->
-        <div class="classified-form">
+        <div class="classified-form" id="application-form">
             <h2 class="font-tech text-center" style="margin-bottom: 2rem;">ÖN DEĞERLENDİRME FORMU</h2>
 
             <div class="form-disclaimer">
-                BAŞVURUNUZ İNCELENDİKTEN SONRA, UYGUN GÖRÜLMESİ HALİNDE PLANLAMA İÇİN TARAFINIZA DÖNÜŞ
-                YAPILACAKTIR.
-                <br>BU FORM BİR KESİN KAYIT DEĞİL, BİR ÖN DEĞERLENDİRME BAŞVURUSUDUR.
+                DETAYLI MÜFREDAT VE OPERASYON RAPORLARINI (PDF) ONAYA SUNMAK İÇİN LÜTFEN DOSYA TALEP FORMUNU DOLDURUNUZ.
+                <br>BAŞVURUNUZ İNCELENDİKTEN SONRA UYGUN GÖRÜLMESİ HALİNDE TARAFINIZA DÖNÜŞ YAPILACAKTIR.
             </div>
 
             <form action="https://formsubmit.co/knnturan1@gmail.com" method="POST">
@@ -792,6 +791,75 @@
                     setTimeout(() => input.classList.remove('shake'), 500);
                 }
             }
+        });
+
+        // Gamified PDF Download Buttons Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pdf-btn').forEach(btn => {
+                btn.onclick = function(e) {
+                    e.preventDefault();
+                    
+                    // Create Toast
+                    const toast = document.createElement('div');
+                    toast.style.position = 'fixed';
+                    toast.style.bottom = '30px';
+                    toast.style.right = '30px';
+                    toast.style.backgroundColor = 'rgba(255, 0, 0, 0.10)';
+                    toast.style.border = '1px solid #ff5555';
+                    toast.style.color = '#ff5555';
+                    toast.style.padding = '1rem 1.5rem';
+                    toast.style.fontFamily = "'Michroma', sans-serif";
+                    toast.style.fontSize = '0.85rem';
+                    toast.style.letterSpacing = '1px';
+                    toast.style.borderRadius = '4px';
+                    toast.style.zIndex = '999999';
+                    toast.style.boxShadow = '0 0 20px rgba(255, 0, 0, 0.3)';
+                    toast.style.transform = 'translateX(120%)';
+                    toast.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                    toast.style.display = 'flex';
+                    toast.style.alignItems = 'center';
+                    toast.style.gap = '10px';
+                    toast.style.backdropFilter = 'blur(10px)';
+                    
+                    toast.innerHTML = `
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                        <span>SİSTEM UYARISI: ERİŞİM YETKİNİZ BULUNMUYOR. LÜTFEN DOSYA TALEP FORMUNU DOLDURUNUZ.</span>
+                    `;
+
+                    document.body.appendChild(toast);
+                    
+                    // Slide in
+                    setTimeout(() => {
+                        toast.style.transform = 'translateX(0)';
+                    }, 50);
+
+                    // After 2.5 seconds, scroll to form and remove toast
+                    setTimeout(() => {
+                        toast.style.transform = 'translateX(120%)';
+                        setTimeout(() => toast.remove(), 400);
+                        
+                        const formTarget = document.getElementById('application-form');
+                        if(formTarget) {
+                            formTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            
+                            // Highlight the form slightly
+                            formTarget.style.transition = 'all 0.5s ease';
+                            setTimeout(() => {
+                                formTarget.style.boxShadow = '0 0 40px rgba(197, 160, 89, 0.2)';
+                                formTarget.style.transform = 'scale(1.01)';
+                                setTimeout(() => {
+                                    formTarget.style.boxShadow = 'none';
+                                    formTarget.style.transform = 'scale(1)';
+                                }, 1500);
+                            }, 500);
+                        }
+                    }, 2500);
+                };
+            });
         });
     </script>
 </body>
