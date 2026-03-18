@@ -795,6 +795,27 @@
 
         // Gamified PDF Download Buttons Logic
         document.addEventListener('DOMContentLoaded', () => {
+            // Kartların İçine Özel İndirme Butonları Ekle
+            document.querySelectorAll('.tech-card').forEach(card => {
+                const btn = document.createElement('a');
+                btn.href = '#';
+                btn.className = 'pdf-btn';
+                // Styles to perfectly match the nested rectangle card vibe
+                btn.style.fontSize = '0.65rem';
+                btn.style.marginTop = '0.85rem';
+                btn.style.display = 'inline-flex';
+                btn.style.padding = '0.4rem 0.6rem';
+                btn.style.border = '1px solid rgba(197, 160, 89, 0.3)';
+                btn.style.borderRadius = '3px';
+                btn.style.textDecoration = 'none';
+                btn.style.color = 'var(--text-muted)';
+                btn.style.transition = 'all 0.3s ease';
+                btn.onmouseover = function() { this.style.color = 'var(--accent-gold)'; this.style.borderColor = 'var(--accent-gold)'; };
+                btn.onmouseout = function() { this.style.color = 'var(--text-muted)'; this.style.borderColor = 'rgba(197, 160, 89, 0.3)'; };
+                btn.innerHTML = `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> DOSYA TALEP ET`;
+                card.appendChild(btn);
+            });
+
             document.querySelectorAll('.pdf-btn').forEach(btn => {
                 btn.onclick = function(e) {
                     e.preventDefault();
