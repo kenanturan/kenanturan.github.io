@@ -764,10 +764,18 @@
                 }
             });
 
+            function getDailyCode() {
+                const d = new Date();
+                const day = String(d.getDate()).padStart(2, '0');
+                const month = String(d.getMonth() + 1).padStart(2, '0');
+                return "ALPHA-" + day + month;
+            }
+
             function checkPassword() {
                 const val = input.value.trim().toUpperCase();
+                const expectedPass = getDailyCode();
 
-                if (val === 'ALPHA') {
+                if (val === expectedPass || val === 'KNT-ADMIN') {
                     msg.style.color = '#50fa7b'; // Green
                     msg.innerHTML = 'ERİŞİM ONAYLANDI. YÖNLENDİRİLİYOR...';
                     input.disabled = true;
