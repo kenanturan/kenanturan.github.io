@@ -158,7 +158,29 @@
                     }
                 } catch(e){}
 
-                resultMessage.innerHTML = `<span style="font-size: 1.1rem; color: #fff; font-weight: 600;">${cert.name}</span> isimli kursiyer,<br><span style="color: var(--accent-gold-light); font-style: italic;">"${cert.course}"</span><br>programını kalite standartlarımıza uygun olarak başarıyla tamamlamış ve mezun olmaya hak kazanmıştır.`;
+                // Masking the name
+                const maskedName = cert.name.trim().split(/\s+/).map(part => part.length > 1 ? part.charAt(0) + '*'.repeat(part.length - 1) : part).join(' ');
+                
+                // Formatting Date
+                const now = new Date();
+                const dateOptions = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+                const queryDate = now.toLocaleDateString('tr-TR', dateOptions);
+
+                resultMessage.innerHTML = `
+                  <div style="text-align: left; background: rgba(0,0,0,0.2); border: 1px solid rgba(197, 160, 89, 0.2); padding: 15px; border-radius: 4px; margin-top: 15px; font-size: 0.95rem;">
+                    <p style="margin-bottom: 8px;"><strong>Kursiyer:</strong> <span style="color: #fff;">${maskedName}</span></p>
+                    <p style="margin-bottom: 8px;"><strong>Eğitim:</strong> <span style="color: var(--accent-gold-light);">${cert.course}</span></p>
+                    <p style="margin-bottom: 20px;"><strong>Durum:</strong> <span style="color: #50fa7b;">Başarıyla Tamamlandı / Mezun</span></p>
+                    
+                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 15px; margin-bottom: 15px;">
+                      <strong>Bilgilendirme:</strong> Bu sertifika, kurumumuzun kalite standartlarına uygun olarak başarıyla tamamlanmış ve sistemimizde kayıt altına alınmıştır. Gizlilik gereği kursiyer bilgileri maskelenmiştir.
+                    </p>
+                    
+                    <p style="font-size: 0.8rem; color: rgba(197, 160, 89, 0.7); text-align: right; margin-bottom: 0;">
+                      <em>Sorgulama Tarihi: ${queryDate}</em>
+                    </p>
+                  </div>
+                `;
                 resultIcon.innerHTML = '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>';
             } else {
                 resultBox.style.borderColor = 'rgba(239, 68, 68, 0.5)';
