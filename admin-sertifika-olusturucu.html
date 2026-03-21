@@ -74,6 +74,23 @@
             return hashHex;
         }
 
+        async function deriveKey(password) {
+            const enc = new TextEncoder();
+            const passHash = await crypto.subtle.digest('SHA-256', enc.encode(password));
+            return await crypto.subtle.importKey("raw", passHash, {name: "AES-GCM"}, false, ["encrypt", "decrypt"]);
+        }
+
+        async function encryptData(secretData, password) {
+            const key = await deriveKey(password);
+            const iv = window.crypto.getRandomValues(new Uint8Array(12));
+            const enc = new TextEncoder();
+            const encrypted = await window.crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, key, enc.encode(JSON.stringify(secretData)));
+
+            const ivHex = Array.from(iv).map(b => b.toString(16).padStart(2, '0')).join('');
+            const encHex = Array.from(new Uint8Array(encrypted)).map(b => b.toString(16).padStart(2, '0')).join('');
+            return `${ivHex}.${encHex}`;
+        }
+
         async function generate() {
             const certId = document.getElementById('certId').value.trim();
             const name = document.getElementById('traineeName').value.trim();
@@ -85,15 +102,15 @@
                 return;
             }
 
-            // Generate SHA-256 Hash of the Certificate ID
+            // Generate SHA-256 Hash of the Certificate ID (For lookup key)
             const hashedId = await hashString(certId);
 
+            // Encrypt the payload (For zero-knowledge database)
+            const payload = { name: name, course: course, date: date };
+            const encryptedPayload = await encryptData(payload, certId);
+
             // Create JSON snippet
-            const jsonSnippet = `"${hashedId}": {
-  "name": "${name}",
-  "course": "${course}",
-  "date": "${date}"
-},`;
+            const jsonSnippet = `"${hashedId}": "${encryptedPayload}",`;
             
             // Create URL (Hardcoded to production domain so it works even if admin tool is run locally)
             const domain = "https://www.taktikegitimakademisi.com";

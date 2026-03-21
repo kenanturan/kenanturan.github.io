@@ -83,6 +83,30 @@
         return hashHex;
     }
 
+    async function deriveKey(password) {
+        const enc = new TextEncoder();
+        const passHash = await crypto.subtle.digest('SHA-256', enc.encode(password));
+        return await crypto.subtle.importKey("raw", passHash, {name: "AES-GCM"}, false, ["encrypt", "decrypt"]);
+    }
+
+    async function decryptData(encryptedString, password) {
+        try {
+            const parts = encryptedString.split('.');
+            if (parts.length !== 2) return null;
+            
+            const iv = new Uint8Array(parts[0].match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
+            const encryptedBytes = new Uint8Array(parts[1].match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
+
+            const key = await deriveKey(password);
+            const decrypted = await window.crypto.subtle.decrypt({ name: "AES-GCM", iv: iv }, key, encryptedBytes);
+
+            const dec = new TextDecoder();
+            return JSON.parse(dec.decode(decrypted));
+        } catch(e) {
+            return null;
+        }
+    }
+
     async function verifyCertificate() {
         const input = document.getElementById('certInput').value.trim();
         const resultBox = document.getElementById('resultBox');
@@ -114,7 +138,13 @@
             
             resultBox.style.display = 'block';
             if (data[hashedInput]) {
-                const cert = data[hashedInput];
+                const encryptedPayload = data[hashedInput];
+                const cert = await decryptData(encryptedPayload, input);
+                
+                if (!cert) {
+                    throw new Error("Unable to decrypt certificate (Corrupted data).");
+                }
+                
                 resultBox.style.borderColor = 'rgba(197, 160, 89, 0.8)';
                 resultBox.style.backgroundColor = 'rgba(197, 160, 89, 0.05)';
                 resultTitle.style.color = 'var(--accent-gold)';
