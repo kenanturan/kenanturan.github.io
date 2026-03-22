@@ -52,7 +52,7 @@
             <input type="text" id="certInput" placeholder="Certificate ID (e.g., TA-2026-001)" style="width: 100%; padding: 15px; margin-bottom: 20px; background: var(--bg-body); border: 1px solid var(--accent-gold); color: #fff; font-family: 'Michroma', sans-serif; text-align: center; border-radius: 4px; font-size: 1rem;" autocomplete="off">
             <button onclick="verifyCertificate()" class="btn" style="width: 100%;">Verify Document</button>
             
-            <div id="resultBox" style="margin-top: 25px; display: none; padding: 20px; border-radius: 4px; border: 1px solid; text-align: center; transition: all 0.3s ease;">
+            <div id="resultBox" style="margin-top: 25px; display: none; padding: 20px; border-radius: 4px; border: 1px solid; text-align: left; transition: all 0.3s ease;">
                 <div id="resultIcon" style="margin-bottom: 10px;"></div>
                 <h3 id="resultTitle" style="margin-bottom: 10px; font-family: 'Michroma', sans-serif; font-size: 1.1rem;"></h3>
                 <p id="resultMessage" style="color: var(--text-main); margin-bottom: 0; line-height: 1.6;"></p>
@@ -170,9 +170,9 @@
                   <div style="text-align: left; background: rgba(0,0,0,0.2); border: 1px solid rgba(197, 160, 89, 0.2); padding: 15px; border-radius: 4px; margin-top: 15px; font-size: 0.95rem;">
                     <p style="margin-bottom: 8px;"><strong>Trainee:</strong> <span style="color: #fff;">${maskedName}</span></p>
                     <p style="margin-bottom: 8px;"><strong>Training:</strong> <span style="color: var(--accent-gold-light);">${cert.course}</span></p>
-                    <p style="margin-bottom: 20px;"><strong>Status:</strong> <span style="color: #50fa7b;">Successfully Completed / Graduated</span></p>
+                    <p style="margin-bottom: 20px;"><strong>Status:</strong> <span style="color: #50fa7b;">Successfully Completed</span></p>
                     
-                    <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 15px; margin-bottom: 15px;">
+                    <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 15px; margin-bottom: 15px;">
                       <strong>Disclaimer:</strong> This certificate has been successfully completed in accordance with our institution's quality standards and is registered in our system. Trainee information has been masked for privacy.
                     </p>
                     
