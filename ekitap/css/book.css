@@ -725,3 +725,141 @@ p {
     margin: 0;
     color: var(--paper-text);
 }
+
+/* --------------------------------------------------------------------------
+   MOBİL İÇERİK VE TİPOGRAFİ ÖLÇEKLENDİRMESİ
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .page {
+        padding: 16px 14px 22px 14px !important;
+        font-size: 11.5px !important;
+        line-height: 1.5 !important;
+    }
+    .page-content-wrapper {
+        padding-top: 14px !important;
+        padding-bottom: 20px !important;
+    }
+    .page-header {
+        top: 6px !important;
+        left: 14px !important;
+        right: 14px !important;
+        font-size: 8px !important;
+        padding-bottom: 3px !important;
+    }
+    .header-page-num {
+        font-size: 11px !important;
+    }
+    .page-footer {
+        bottom: 4px !important;
+    }
+    .page-num-pill {
+        font-size: 9.5px !important;
+        padding: 1px 10px !important;
+    }
+    .sub-section-title {
+        font-size: 12.5px !important;
+        margin: 4px 0 8px 0 !important;
+        line-height: 1.35 !important;
+        padding-left: 6px !important;
+    }
+    .cover-title {
+        font-size: 18px !important;
+    }
+    .cover-series {
+        font-size: 9px !important;
+        letter-spacing: 2px !important;
+    }
+    .cover-subtitle {
+        font-size: 9.5px !important;
+        max-width: 95% !important;
+    }
+    .cover-crest {
+        width: 46px !important;
+        height: 46px !important;
+        margin: 4px 0 !important;
+    }
+    .author-name {
+        font-size: 13px !important;
+    }
+    .quote-card-luxury {
+        padding: 8px 10px 8px 12px !important;
+        margin: 6px 0 8px 0 !important;
+    }
+    .quote-text {
+        font-size: 10.5px !important;
+        margin-left: 8px !important;
+    }
+    .drop-cap {
+        font-size: 30px !important;
+        padding-right: 5px !important;
+    }
+    .figure-card {
+        margin: 4px 0 !important;
+    }
+    .figure-caption {
+        font-size: 8.5px !important;
+        padding: 3px 6px !important;
+    }
+    .qr-video-box {
+        padding: 4px 8px !important;
+        gap: 8px !important;
+    }
+    .qr-img {
+        width: 38px !important;
+        height: 38px !important;
+    }
+    .qr-text {
+        font-size: 9.5px !important;
+    }
+    .callout-tactical {
+        padding: 6px 10px !important;
+        font-size: 10px !important;
+        margin: 5px 0 !important;
+    }
+    .principle-card {
+        padding: 4px 8px !important;
+        font-size: 10px !important;
+    }
+    .p-num {
+        width: 16px !important;
+        height: 16px !important;
+        font-size: 9px !important;
+    }
+}
+
+/* YATAY MOBİL İÇİN ULTRA KOMPAKT TİPOGRAFİ */
+@media (max-height: 520px) and (orientation: landscape) {
+    .page {
+        padding: 10px 12px 16px 12px !important;
+        font-size: 9.5px !important;
+        line-height: 1.35 !important;
+    }
+    .page-content-wrapper {
+        padding-top: 8px !important;
+        padding-bottom: 12px !important;
+    }
+    .page-header {
+        top: 2px !important;
+        left: 12px !important;
+        right: 12px !important;
+        font-size: 7px !important;
+    }
+    .sub-section-title {
+        font-size: 10.5px !important;
+        margin: 2px 0 4px 0 !important;
+    }
+    .figure-card {
+        margin: 2px 0 !important;
+    }
+    .qr-video-box {
+        padding: 2px 6px !important;
+        gap: 6px !important;
+    }
+    .qr-img {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    .qr-text {
+        font-size: 8px !important;
+    }
+}

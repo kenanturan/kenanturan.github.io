@@ -462,41 +462,145 @@ body, html {
 }
 
 /* --------------------------------------------------------------------------
-   RESPONSIVE MOD (MOBİL VE TABLET)
+   ODAKLANMIŞ TAM EKRAN MODU (IMMERSIVE FULLSCREEN)
+   -------------------------------------------------------------------------- */
+body.immersive-fullscreen .top-bar {
+    display: none !important;
+}
+
+body.immersive-fullscreen .book-viewport {
+    padding: 0 !important;
+}
+
+body.immersive-fullscreen .bottom-dock {
+    opacity: 0.2;
+    transition: opacity 0.3s ease;
+}
+
+body.immersive-fullscreen .bottom-dock:hover,
+body.immersive-fullscreen .bottom-dock:active {
+    opacity: 1;
+}
+
+body.immersive-fullscreen .flipbook-container {
+    max-height: 100vh !important;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE MOD (MOBİL DİKEY VE YATAY UYUMU)
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
-    .book-viewport {
-        padding: 10px 10px 75px 10px;
-    }
     .top-bar {
-        padding: 0 12px;
-        height: 52px;
+        padding: 0 10px;
+        height: 48px;
+    }
+    .brand-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
     }
     .brand-title {
-        font-size: 12px;
+        font-size: 11px;
     }
     .brand-subtitle {
         display: none;
     }
+    .top-actions {
+        gap: 6px;
+    }
+    .btn-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 7px;
+    }
+    .btn-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+    .book-viewport {
+        padding: 4px 4px 65px 4px;
+        width: 100vw;
+        box-sizing: border-box;
+    }
+    .flipbook-container {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100vw;
+        max-height: calc(100vh - 118px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .nav-arrow {
-        display: none; /* Mobilde parmakla kaydırma (swipe) kullanılır */
-    }
-    .page {
-        padding: 22px 18px 30px 18px;
-        font-size: 12.5px;
-    }
-    .cover-title {
-        font-size: 20px;
-    }
-    .cover-crest {
-        width: 60px;
-        height: 60px;
+        display: none;
     }
     .bottom-dock {
-        padding: 5px 12px;
-        gap: 8px;
+        bottom: 8px;
+        padding: 4px 10px;
+        gap: 6px;
+        border-radius: 25px;
+    }
+    .dock-btn svg {
+        width: 16px;
+        height: 16px;
     }
     .page-indicator-badge {
         font-size: 11px;
+        padding: 3px 10px;
+    }
+}
+
+/* YATAY MOBİL MODU (LANDSCAPE MOBİL: Telefon yan çevrilince) */
+@media (max-height: 520px) and (orientation: landscape) {
+    .top-bar {
+        height: 36px;
+        padding: 0 8px;
+    }
+    .brand-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 11px;
+    }
+    .brand-title {
+        font-size: 10px;
+    }
+    .brand-subtitle {
+        display: none;
+    }
+    .top-actions {
+        gap: 4px;
+    }
+    .btn-icon {
+        width: 28px;
+        height: 28px;
+    }
+    .btn-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+    .book-viewport {
+        padding: 2px 4px 46px 4px;
+    }
+    .flipbook-container {
+        max-height: calc(100vh - 84px);
+    }
+    .bottom-dock {
+        bottom: 4px;
+        padding: 3px 8px;
+        gap: 5px;
+    }
+    .dock-btn {
+        padding: 2px;
+    }
+    .dock-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+    .page-indicator-badge {
+        font-size: 10px;
+        padding: 2px 8px;
+    }
+    .nav-arrow {
+        display: none;
     }
 }
