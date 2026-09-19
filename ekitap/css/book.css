@@ -1,0 +1,727 @@
+/* ==========================================================================
+   BOOK TYPOGRAPHY & INTERIOR PAGE STYLES
+   Taktik Mücadelenin Temelleri - Hayatta Kalma Bakış Açısı
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --book-font-body: 'Merriweather', Georgia, serif;
+    --book-font-head: 'Cinzel', 'Playfair Display', serif;
+    --book-font-ui: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    /* Krem Kağıt Teması (Varsayılan) */
+    --paper-bg: #fbf7ee;
+    --paper-text: #262421;
+    --paper-text-muted: #5e5a52;
+    --paper-border: rgba(180, 160, 120, 0.25);
+    --gold-primary: #c59b27;
+    --gold-dark: #8c6d1b;
+    --accent-red: #8b1e1e;
+    --spine-shadow-left: linear-gradient(to left, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.06) 15px, rgba(0,0,0,0) 40px);
+    --spine-shadow-right: linear-gradient(to right, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.06) 15px, rgba(0,0,0,0) 40px);
+}
+
+/* Sayfa Temaları */
+body.theme-white {
+    --paper-bg: #ffffff;
+    --paper-text: #1a1a1a;
+    --paper-text-muted: #666666;
+    --paper-border: rgba(0, 0, 0, 0.1);
+}
+
+body.theme-dark {
+    --paper-bg: #1e232a;
+    --paper-text: #e2e8f0;
+    --paper-text-muted: #94a3b8;
+    --paper-border: rgba(255, 255, 255, 0.1);
+    --spine-shadow-left: linear-gradient(to left, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 15px, rgba(0,0,0,0) 40px);
+    --spine-shadow-right: linear-gradient(to right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 15px, rgba(0,0,0,0) 40px);
+}
+
+/* Sayfa Genel Yapısı */
+.page {
+    background-color: var(--paper-bg);
+    color: var(--paper-text);
+    font-family: var(--book-font-body);
+    font-size: 13px;
+    line-height: 1.6;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 26px 30px 28px 30px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Kitap Omurga Gölgeleri */
+.page:nth-child(odd):not(.page-cover) {
+    box-shadow: inset 18px 0 25px -10px rgba(0, 0, 0, 0.12);
+}
+.page:nth-child(even):not(.page-cover) {
+    box-shadow: inset -18px 0 25px -10px rgba(0, 0, 0, 0.12);
+}
+
+/* Sayfa Üstbilgi ve Altbilgi */
+.page-header {
+    position: absolute;
+    top: 12px;
+    left: 30px;
+    right: 30px;
+    font-family: var(--book-font-head);
+    font-size: 9.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--paper-text-muted);
+    border-bottom: 1px solid var(--paper-border);
+    padding-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 15;
+}
+
+.header-page-num {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--gold-dark);
+    font-family: var(--book-font-head);
+    letter-spacing: 0;
+}
+
+.page-footer {
+    position: absolute;
+    bottom: 8px;
+    left: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 25;
+    pointer-events: none;
+}
+
+.page-num-pill {
+    font-family: var(--book-font-head);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gold-dark);
+    background: rgba(197, 155, 39, 0.12);
+    border: 1px solid rgba(197, 155, 39, 0.35);
+    padding: 2px 14px;
+    border-radius: 12px;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+.page-content-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 24px; /* Üstbilgi çizgisi ile başlık arasına tam ferahlık kazandırır */
+    padding-bottom: 25px; /* Altbilgi sayfa numarasına alan bırakır */
+    box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   KAPAK TASARIMI (HARDCOVER)
+   -------------------------------------------------------------------------- */
+.page-cover {
+    background: radial-gradient(circle at 50% 40%, #1a2332 0%, #0c1119 100%);
+    color: #f1f5f9;
+    padding: 0;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover-content {
+    width: 88%;
+    height: 92%;
+    border: 2px solid #c59b27;
+    position: relative;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: inset 0 0 0 4px #0c1119, inset 0 0 0 6px rgba(197, 155, 39, 0.4);
+}
+
+.cover-series {
+    font-family: var(--book-font-head);
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #c59b27;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.cover-divider-line {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c59b27, transparent);
+    margin: 8px 0;
+}
+
+.cover-title {
+    font-family: var(--book-font-head);
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    line-height: 1.25;
+    margin: 10px 0 5px 0;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+.gold-text {
+    background: linear-gradient(135deg, #f5d77f 0%, #d4af37 50%, #aa820a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+}
+
+.cover-chapter-badge {
+    background: rgba(197, 155, 39, 0.15);
+    border: 1px solid #c59b27;
+    padding: 3px 14px;
+    border-radius: 20px;
+    font-family: var(--book-font-ui);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #f5d77f;
+    font-weight: 600;
+}
+
+.cover-subtitle {
+    font-family: var(--book-font-body);
+    font-style: italic;
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: #94a3b8;
+    max-width: 85%;
+    margin: 6px 0;
+}
+
+.cover-crest {
+    width: 80px;
+    height: 80px;
+    margin: 10px 0;
+}
+
+.crest-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+}
+
+.cover-author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.author-label {
+    font-family: var(--book-font-ui);
+    font-size: 8.5px;
+    letter-spacing: 3px;
+    color: #64748b;
+}
+
+.author-name {
+    font-family: var(--book-font-head);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #f8fafc;
+}
+
+/* --------------------------------------------------------------------------
+   ARKA KAPAK
+   -------------------------------------------------------------------------- */
+.back-cover-content {
+    width: 88%;
+    height: 92%;
+    border: 1px solid rgba(197, 155, 39, 0.4);
+    box-sizing: border-box;
+    padding: 35px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.back-quote-box {
+    background: rgba(255, 255, 255, 0.04);
+    border-left: 3px solid #c59b27;
+    padding: 16px 18px;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.back-quote-text {
+    font-style: italic;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #e2e8f0;
+    margin: 0 0 8px 0;
+}
+
+.back-author-quote {
+    font-family: var(--book-font-head);
+    font-size: 11px;
+    color: #c59b27;
+    text-align: right;
+}
+
+.back-blurb {
+    font-size: 11.5px;
+    line-height: 1.65;
+    color: #94a3b8;
+    text-align: justify;
+}
+
+.back-barcode-box {
+    background: #ffffff;
+    padding: 10px 18px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.barcode-lines {
+    display: flex;
+    gap: 3px;
+    height: 35px;
+    align-items: flex-end;
+}
+
+.b-line {
+    background: #000000;
+    display: inline-block;
+}
+.b-1 { width: 2px; height: 100%; }
+.b-2 { width: 4px; height: 100%; }
+.b-3 { width: 6px; height: 100%; }
+
+.barcode-isbn {
+    font-family: monospace;
+    font-size: 9px;
+    color: #000000;
+    letter-spacing: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   İÇ KAPAK & JENERİK
+   -------------------------------------------------------------------------- */
+.inner-title-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.edition-tag {
+    font-family: var(--book-font-ui);
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--paper-text-muted);
+}
+
+.book-main-title {
+    font-family: var(--book-font-head);
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--paper-text);
+    margin: 20px 0 0 0;
+}
+
+.small-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--gold-primary);
+    margin: 15px auto;
+}
+
+.chapter-sub-title {
+    font-family: var(--book-font-head);
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--paper-text);
+    font-weight: 600;
+}
+
+.author-sub {
+    font-family: var(--book-font-body);
+    font-size: 14px;
+    font-style: italic;
+    color: var(--paper-text-muted);
+}
+
+.colophon-box {
+    border-top: 1px solid var(--paper-border);
+    padding-top: 15px;
+    font-size: 10.5px;
+    color: var(--paper-text-muted);
+    line-height: 1.5;
+    text-align: center;
+}
+
+.colophon-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 8px;
+    font-size: 9.5px;
+}
+
+/* --------------------------------------------------------------------------
+   İÇİNDEKİLER TABLOSU (FİHRİST)
+   -------------------------------------------------------------------------- */
+.toc-page-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-heading-classic {
+    font-family: var(--book-font-head);
+    font-size: 17px;
+    letter-spacing: 1.5px;
+    text-align: center;
+    margin: 0;
+    color: var(--paper-text);
+}
+
+.heading-gold-line {
+    width: 45px;
+    height: 2px;
+    background: var(--gold-primary);
+    margin: 8px auto 16px auto;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    flex-grow: 1;
+}
+
+.toc-list li {
+    display: flex;
+    align-items: baseline;
+    font-size: 11px;
+    cursor: pointer;
+    padding: 3px 6px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.toc-list li:hover {
+    background: rgba(197, 155, 39, 0.12);
+    color: var(--gold-dark);
+}
+
+.toc-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+}
+
+.toc-dots {
+    flex-grow: 1;
+    border-bottom: 1px dotted var(--paper-text-muted);
+    margin: 0 6px;
+    opacity: 0.4;
+}
+
+.toc-page {
+    font-family: var(--book-font-head);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gold-dark);
+}
+
+/* --------------------------------------------------------------------------
+   BÖLÜM METİNLERİ VE ELEMANLARI
+   -------------------------------------------------------------------------- */
+.chapter-eyebrow {
+    font-family: var(--book-font-head);
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold-dark);
+    margin-bottom: 4px;
+}
+
+.chapter-head-title {
+    font-family: var(--book-font-head);
+    font-size: 21px;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    margin: 0 0 16px 0;
+    color: var(--paper-text);
+}
+
+.sub-section-title {
+    font-family: var(--book-font-head);
+    font-size: 15px;
+    letter-spacing: 0.6px;
+    margin: 8px 0 14px 0;
+    color: var(--paper-text);
+    border-left: 3.5px solid var(--gold-primary);
+    padding-left: 10px;
+    line-height: 1.45;
+}
+
+/* Bir sayfada ikinci gelen başlıklar için ek ferahlık */
+.qr-video-box + .sub-section-title,
+p + .sub-section-title {
+    margin-top: 18px;
+}
+
+/* Lüks Alıntı Kartı */
+.quote-card-luxury {
+    background: rgba(197, 155, 39, 0.07);
+    border: 1px solid var(--paper-border);
+    border-left: 3px solid var(--gold-primary);
+    padding: 14px 16px 12px 18px;
+    border-radius: 4px;
+    margin: 12px 0 16px 0;
+    position: relative;
+}
+
+.quote-mark {
+    font-family: var(--book-font-head);
+    font-size: 32px;
+    color: var(--gold-primary);
+    opacity: 0.4;
+    position: absolute;
+    top: 2px;
+    left: 8px;
+    line-height: 1;
+}
+
+.quote-text {
+    font-style: italic;
+    font-size: 12.5px;
+    line-height: 1.6;
+    margin: 0 0 6px 14px;
+    color: var(--paper-text);
+}
+
+.quote-author {
+    font-family: var(--book-font-head);
+    font-size: 10.5px;
+    color: var(--paper-text-muted);
+    text-align: right;
+    letter-spacing: 1px;
+}
+
+/* Drop-Cap (Büyük Baş Harf) */
+.drop-cap {
+    float: left;
+    font-family: var(--book-font-head);
+    font-size: 42px;
+    line-height: 0.8;
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-bottom: 2px;
+    color: var(--gold-dark);
+    font-weight: 700;
+}
+
+/* Paragraf Stilleri */
+p {
+    margin: 0 0 10px 0;
+    text-align: justify;
+    hyphens: auto;
+}
+
+.lead-text {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--paper-text);
+    margin-bottom: 12px;
+}
+
+/* Taktik Kutular */
+.callout-tactical {
+    background: rgba(30, 41, 59, 0.04);
+    border: 1px solid var(--paper-border);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 12px;
+}
+
+.callout-tactical-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+    font-family: var(--book-font-ui);
+    color: var(--gold-dark);
+}
+
+.callout-tactical ul {
+    margin: 4px 0 0 16px;
+    padding: 0;
+}
+
+.callout-tactical li {
+    margin-bottom: 3px;
+}
+
+/* Prensipler Grid Düzeni */
+.principles-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6.5px;
+    margin-top: 4px;
+}
+
+.principle-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: rgba(197, 155, 39, 0.05);
+    border: 1px solid var(--paper-border);
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 11.5px;
+    line-height: 1.45;
+}
+
+.p-num {
+    background: var(--gold-primary);
+    color: #ffffff;
+    font-family: var(--book-font-head);
+    font-weight: 700;
+    font-size: 10px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.p-body {
+    flex-grow: 1;
+}
+
+/* --------------------------------------------------------------------------
+   GÖRSELLER VE FİGÜRLER
+   -------------------------------------------------------------------------- */
+.figure-card {
+    margin: 8px 0 6px 0;
+    border: 1px solid var(--paper-border);
+    border-radius: 6px;
+    overflow: hidden;
+    background: #0e131b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.figure-card-compact {
+    margin: 6px 0 5px 0;
+    border: 1px solid var(--paper-border);
+    border-radius: 6px;
+    overflow: hidden;
+    background: #0e131b;
+    position: relative;
+}
+
+.book-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    display: block;
+    cursor: zoom-in;
+    background-color: #090d13;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.book-img:hover {
+    transform: scale(1.02);
+    filter: brightness(1.05);
+}
+
+.figure-caption {
+    font-family: var(--book-font-ui);
+    font-size: 10px;
+    color: #94a3b8;
+    padding: 5px 10px;
+    background: #131a24;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+/* QR Kod Video Kutusu */
+.qr-video-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(197, 155, 39, 0.08);
+    border: 1px dashed var(--gold-primary);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-top: auto;
+}
+
+.qr-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    background: #ffffff;
+    padding: 2px;
+    cursor: zoom-in;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.qr-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.qr-badge {
+    align-self: flex-start;
+    background: var(--gold-primary);
+    color: #ffffff;
+    font-family: var(--book-font-ui);
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.qr-text {
+    font-size: 11px;
+    line-height: 1.4;
+    margin: 0;
+    color: var(--paper-text);
+}

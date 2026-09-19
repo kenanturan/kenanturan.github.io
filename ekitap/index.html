@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Taktik Mücadelenin Temelleri - Hayatta Kalma Bakış Açısı | Kenan Turan</title>
+    <meta name="description" content="Kenan Turan - Taktik Mücadelenin Temelleri: Hayatta Kalma Bakış Açısı. Zengin görsel ve video anlatımlı 3D interaktif e-kitap.">
+    
+    <!-- Stiller -->
+    <link rel="stylesheet" href="css/book.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="theme-cream">
+    <div class="app-container">
+        
+        <!-- ÜST ARAÇ ÇUBUĞU -->
+        <header class="top-bar">
+            <div class="book-brand">
+                <a href="../index.html" title="Taktik Eğitim Akademisi Ana Sayfasına Dön" style="text-decoration: none; display: flex; align-items: center; gap: 12px; color: inherit;">
+                    <div class="brand-icon">KT</div>
+                    <div class="brand-titles">
+                        <span class="brand-title">TAKTİK MÜCADELENİN TEMELLERİ</span>
+                        <span class="brand-subtitle">Hayatta Kalma Bakış Açısı — Kenan Turan</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="top-actions">
+                <!-- İçindekiler / Fihrist -->
+                <button class="btn-icon" id="btnTOC" title="İçindekiler / Fihrist">
+                    <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+                </button>
+
+                <!-- Kitap Ayracı (Yer İmi) -->
+                <button class="btn-icon" id="btnBookmark" title="Sayfayı Yer İmi Olarak Kaydet">
+                    <svg viewBox="0 0 24 24"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+                </button>
+
+                <!-- Okuma Teması (Krem / Beyaz / Koyu) -->
+                <button class="btn-icon" id="btnTheme" title="Okuma Temasını Değiştir">
+                    <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
+                </button>
+
+                <!-- Sayfa Sesi Aç/Kapat -->
+                <button class="btn-icon active" id="btnSound" title="Sayfa Çevirme Sesi (Açık/Kapalı)">
+                    <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                </button>
+
+                <!-- Tam Ekran -->
+                <button class="btn-icon" id="btnFullscreen" title="Tam Ekran Modu">
+                    <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- 3D KİTAP SAHNESİ -->
+        <main class="book-viewport">
+            <!-- Yan Gezinme Butonları -->
+            <button class="nav-arrow nav-prev" id="sidePrev" title="Önceki Sayfa">
+                <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            
+            <button class="nav-arrow nav-next" id="sideNext" title="Sonraki Sayfa">
+                <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+
+            <!-- Kitap Ayracı Şeridi -->
+            <div class="bookmark-ribbon" id="bookmarkRibbon" title="Kaldığınız Sayfa"></div>
+
+            <!-- StPageFlip Taşıyıcısı -->
+            <div class="flipbook-container" id="flipbook">
+                <!-- Sayfalar js/reader.js tarafından dinamik yerleştirilir -->
+            </div>
+        </main>
+
+        <!-- ALT KONTROL DOKU -->
+        <footer class="bottom-dock">
+            <!-- İlk Sayfa -->
+            <button class="dock-btn" id="btnFirst" title="En Başa Git">
+                <svg viewBox="0 0 24 24"><path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"/></svg>
+            </button>
+
+            <!-- Önceki Sayfa -->
+            <button class="dock-btn" id="btnPrev" title="Önceki Sayfa">
+                <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+
+            <!-- Sayfa Göstergesi -->
+            <div class="page-indicator-badge" id="pageIndicator">
+                Yükleniyor...
+            </div>
+
+            <!-- Sonraki Sayfa -->
+            <button class="dock-btn" id="btnNext" title="Sonraki Sayfa">
+                <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+
+            <!-- Son Sayfa -->
+            <button class="dock-btn" id="btnLast" title="En Sona Git">
+                <svg viewBox="0 0 24 24"><path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"/></svg>
+            </button>
+        </footer>
+
+        <!-- EKRAN ALTI İLERLEME ÇUBUĞU -->
+        <div class="progress-bar-container" id="progressBar" title="Kitap İlerlemesi (Tıklayarak geçiş yapabilirsiniz)">
+            <div class="progress-bar-fill" id="progressBarFill"></div>
+        </div>
+    </div>
+
+    <!-- İÇİNDEKİLER ÇEKMECESİ -->
+    <div class="drawer-backdrop" id="drawerBackdrop">
+        <aside class="drawer-panel">
+            <div class="drawer-header">
+                <h3>İÇİNDEKİLER</h3>
+                <button class="btn-icon" id="drawerClose" title="Kapat">
+                    <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+            <div class="drawer-search-box">
+                <input type="text" id="drawerSearch" class="drawer-search-input" placeholder="Bölüm veya konu ara...">
+            </div>
+            <div class="drawer-content" id="drawerList">
+                <!-- reader.js tarafından üretilir -->
+            </div>
+        </aside>
+    </div>
+
+    <!-- RESİM BÜYÜTME (LIGHTBOX) MODAL -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <button class="lightbox-close" id="lightboxClose" title="Kapat (Esc)">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="#fff"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+        <img src="" alt="Büyütülmüş Görsel" class="lightbox-img" id="lightboxImage">
+    </div>
+
+    <!-- Komut Dosyaları -->
+    <script src="js/page-flip.browser.js"></script>
+    <script src="js/sound.js"></script>
+    <script src="js/book-data.js"></script>
+    <script src="js/reader.js"></script>
+</body>
+</html>
