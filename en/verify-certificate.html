@@ -127,14 +127,15 @@
 
         try {
             const hashedInput = await hashString(input);
-            const response = await fetch('../certificates.json');
+            const response = await fetch('../certificates.json?t=' + Date.now());
             
             if (!response.ok) {
                 console.error("Database connection failed. (HTTP Status: " + response.status + ")");
                 return;
             }
             
-            const data = await response.json();
+            const rawText = await response.text();
+            const data = JSON.parse(rawText.replace(/,\s*\}/g, '}'));
             
             resultBox.style.display = 'block';
             if (data[hashedInput]) {
